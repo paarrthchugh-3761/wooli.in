@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Wooli</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bronze: #B8860B;
+            --bronze-light: #D4AF37;
+            --bronze-dark: #8B6914;
+            --dark: #1a1a1a;
+            --light: #f5f5f0;
+            --white: #ffffff;
+            --gray: #666;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: var(--light);
+            overflow-x: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 1rem 3%;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            padding: 0.7rem 3%;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-container:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-img {
+            width: 90px;
+            height: 90px;
+            object-fit: contain;
+            filter: drop-shadow(0 4px 8px rgba(184, 134, 11, 0.2));
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--bronze) 0%, var(--bronze-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 3px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            position: relative;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+            font-size: 1rem;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--bronze);
+            transition: width 0.3s ease;
+            box-shadow: 0 2px 8px rgba(184, 134, 11, 0.4);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--bronze);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 12rem 5% 6rem;
+            background: linear-gradient(135deg, #f5f5f0 0%, #ffffff 50%, #f5f5f0 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before,
+        .hero::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.3;
+        }
+
+        .hero::before {
+            top: -20%;
+            right: 10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(184, 134, 11, 0.4) 0%, transparent 70%);
+        }
+
+        .hero::after {
+            bottom: -10%;
+            left: 10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.4) 0%, transparent 70%);
+        }
+
+        .hero-content {
+            max-width: 900px;
+            position: relative;
+            z-index: 1;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 1s ease forwards 0.3s;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+            letter-spacing: -2px;
+        }
+
+        .hero .highlight {
+            background: linear-gradient(135deg, var(--bronze) 0%, var(--bronze-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--gray);
+            line-height: 1.8;
+        }
+
+        /* Filter Buttons */
+        .filters-section {
+            padding: 4rem 5% 2rem;
+            background: var(--white);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .filters {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 1rem 2.5rem;
+            background: var(--light);
+            border: 2px solid var(--bronze);
+            color: var(--bronze);
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 4px 15px rgba(184, 134, 11, 0.15);
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: linear-gradient(135deg, var(--bronze) 0%, var(--bronze-dark) 100%);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(184, 134, 11, 0.3);
+        }
+
+        /* Blog Grid */
+        .blog-section {
+            padding: 4rem 5% 8rem;
+            background: var(--white);
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: 30px;
+            overflow: hidden;
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            opacity: 0;
+            transform: translateY(50px);
+            box-shadow: 
+                0 2px 4px rgba(0, 0, 0, 0.05),
+                0 8px 16px rgba(0, 0, 0, 0.08),
+                0 20px 40px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            border: 1px solid rgba(184, 134, 11, 0.08);
+            text-decoration: none;
+            display: block;
+        }
+
+        .blog-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .blog-card.hidden {
+            display: none;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-25px) scale(1.03);
+            box-shadow: 
+                0 8px 20px rgba(0, 0, 0, 0.1),
+                0 20px 40px rgba(0, 0, 0, 0.12),
+                0 40px 80px rgba(184, 134, 11, 0.15);
+        }
+
+        .blog-card-image {
+            height: 280px;
+            background: linear-gradient(135deg, var(--bronze) 0%, var(--bronze-dark) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .blog-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .blog-card-image .emoji {
+            font-size: 6rem;
+        }
+
+        .blog-card-body {
+            padding: 2.8rem;
+        }
+
+        .blog-meta {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .blog-category {
+            display: inline-block;
+            padding: 0.6rem 1.4rem;
+            background: linear-gradient(135deg, var(--bronze) 0%, var(--bronze-dark) 100%);
+            color: white;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(184, 134, 11, 0.3);
+        }
+
+        .reading-time {
+            color: var(--gray);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .blog-card h3 {
+            font-size: 1.75rem;
+            margin-bottom: 1.2rem;
+            color: var(--dark);
+            font-weight: 800;
+            line-height: 1.4;
+        }
+
+        .blog-card p {
+            color: var(--gray);
+            margin-bottom: 2rem;
+            line-height: 1.9;
+            font-size: 1.05rem;
+        }
+
+        .read-more {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: var(--bronze);
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1.05rem;
+        }
+
+        .read-more:hover {
+            gap: 1.2rem;
+        }
+
+        .read-more::after {
+            content: '→';
+            font-size: 1.3rem;
+            transition: transform 0.3s ease;
+        }
+
+        .read-more:hover::after {
+            transform: translateX(5px);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--dark) 0%, #0a0a0a 100%);
+            color: white;
+            padding: 5rem 5% 2.5rem;
+            position: relative;
+            box-shadow: 0 -20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-logo {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+            margin: 0 auto 1.5rem;
+            filter: drop-shadow(0 8px 16px rgba(184, 134, 11, 0.4));
+        }
+
+        .footer-text {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--bronze);
+            margin-bottom: 2.5rem;
+            letter-spacing: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.15rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            padding: 0.8rem 2rem;
+            border: 2px solid rgba(184, 134, 11, 0.3);
+            border-radius: 30px;
+        }
+
+        .social-links a:hover {
+            color: var(--bronze);
+            border-color: var(--bronze);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(184, 134, 11, 0.3);
+        }
+
+        .copyright {
+            opacity: 0.7;
+            font-size: 1rem;
+            padding-top: 2.5rem;
+            border-top: 1px solid rgba(184, 134, 11, 0.2);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .filters {
+                gap: 1rem;
+            }
+
+            .filter-btn {
+                padding: 0.8rem 1.8rem;
+                font-size: 0.9rem;
+            }
+
+            .logo-img {
+                width: 70px;
+                height: 70px;
+            }
+
+            .logo-text {
+                font-size: 1.3rem;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo-container">
+                <img src="logo.png" alt="Wooli Logo" class="logo-img">
+                <span class="logo-text">WOOLI</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Financial <span class="highlight">Insights</span></h1>
+            <p>Expert analysis, practical strategies, and market insights to accelerate your financial journey</p>
+        </div>
+    </section>
+
+    <section class="filters-section">
+        <div class="container">
+            <div class="filters">
+                <button class="filter-btn active" data-category="all">All Posts</button>
+                <button class="filter-btn" data-category="personal-finance">Personal Finance</button>
+                <button class="filter-btn" data-category="investing-basics">Investing Basics</button>
+                <button class="filter-btn" data-category="market-indices">Market Indices</button>
+                <button class="filter-btn" data-category="tax">Tax</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="blog-section">
+        <div class="container">
+            <div class="blog-grid">
+                <!-- BLOG POST 1 -->
+               <a href="posts/50k-salary-month-1-plan/index.html" class="blog-card" data-category="personal-finance">
+    <div class="blog-card-image">
+        <img src="posts/50k-salary-month-1-plan/thumbnail.png" alt="₹50K Salary Money Plan">
+    </div>
+```
+
+                    <div class="blog-card-body">
+                        <div class="blog-meta">
+                            <span class="blog-category">Personal Finance</span>
+                            <span class="reading-time">⏱ 5 min read</span>
+                        </div>
+                        <h3>₹50K Salary? Your Exact Month 1 Money Plan</h3>
+                        <p>The 50-30-20 rule adapted for India with real numbers. Stop winging it and start building wealth from your first paycheck.</p>
+                        <span class="read-more">Read Full Article</span>
+                    </div>
+                </a>
+
+                <!-- ADD NEW BLOG POSTS BELOW THIS LINE -->
+                <!-- BLOG POST -->
+                <a href="posts/ltcg-vs-stcg-explained-for-indian-beginners-2026/" class="blog-card" data-category="tax">
+                    <div class="blog-card-image">
+                        <img src="posts/ltcg-vs-stcg-explained-for-indian-beginners-2026/thumbnail.png" alt="LTCG vs STCG Explained for Indian Beginners (2026)">
+                    </div>
+                    <div class="blog-card-body">
+                        <div class="blog-meta">
+                            <span class="blog-category">Tax</span>
+                            <span class="reading-time">⏱ 10 min read</span>
+                        </div>
+                        <h3>LTCG vs STCG Explained for Indian Beginners (2026)</h3>
+                        <p>You bought shares in January. Now it's December and you want to sell. Your friend says "Wait till January! You'll save lakhs in tax." What difference does one month make? Everything.</p>
+                        <span class="read-more">Read Full Article</span>
+                    </div>
+                </a>
+
+                <!-- BLOG POST -->
+                <a href="posts/capital-gains-explained-for-indian-beginners-2026/" class="blog-card" data-category="tax">
+                    <div class="blog-card-image">
+                        <img src="posts/capital-gains-explained-for-indian-beginners-2026/thumbnail.png" alt="Capital Gains Explained for Indian Beginners (2026)">
+                    </div>
+                    <div class="blog-card-body">
+                        <div class="blog-meta">
+                            <span class="blog-category">Tax</span>
+                            <span class="reading-time">⏱ 12 min read</span>
+                        </div>
+                        <h3>Capital Gains Explained for Indian Beginners (2026)</h3>
+                        <p>You bought shares, made profit, and sold them. Then your broker deducts tax. Wait, what? Tax on selling shares? Welcome to capital gains tax - the tax on profit from selling assets in 2026.</p>
+                        <span class="read-more">Read Full Article</span>
+                    </div>
+                </a>
+
+                <!-- BLOG POST -->
+                <a href="posts/tax-deductions-explained-for-indian-beginners-2025/" class="blog-card" data-category="tax">
+                    <div class="blog-card-image">
+                        <img src="posts/tax-deductions-explained-for-indian-beginners-2025/thumbnail.png" alt="Tax Deductions Explained for Indian Beginners (2025)">
+                    </div>
+                    <div class="blog-card-body">
+                        <div class="blog-meta">
+                            <span class="blog-category">Tax</span>
+                            <span class="reading-time">⏱ 11 min read</span>
+                        </div>
+                        <h3>Tax Deductions Explained for Indian Beginners (2025)</h3>
+                        <p>Your colleague brags "I saved ₹46,800 in tax using 80C!" What's 80C? Should you use it? Here's the truth: tax deductions aren't magic vouchers, and blindly chasing them can make you poorer.</p>
+                        <span class="read-more">Read Full Article</span>
+                    </div>
+                </a>
+
+                <!-- BLOG POST -->
+                <a href="posts/old-tax-regime-vs-new-tax-regime-which-should-beginners-choose-2026/" class="blog-card" data-category="tax">
+                    <div class="blog-card-image">
+                        <img src="posts/old-tax-regime-vs-new-tax-regime-which-should-beginners-choose-2026/thumbnail.png" alt="Old Tax Regime vs New Tax Regime: Which Should Beginners Choose? (2026)">
+                    </div>
+                    <div class="blog-card-body">
+                        <div class="blog-meta">
+                            <span class="blog-category">Tax</span>
+                            <span class="reading-time">⏱ 10 min read</span>
+                        </div>
+                        <h3>Old Tax Regime vs New Tax Regime: Which Should Beginners Choose? (2026)</h3>
+                        <p>You're filing your first ITR. Old regime or new regime? What's the difference? Which saves more tax? Here's the truth: there's no universal answer - but for most beginners earning ₹5-8 lakh, new regime wins.</p>
+                        <span class="read-more">Read Full Article</span>
+                    </div>
+                </a>
+
+                <!-- BLOG POST -->
+                <a href="posts/tax-filing-basics/index.html" class="blog-card" data-category="tax">
+                    <div class="blog-card-image">
+                        <img src="posts/what-is-sensex/thumbnail.png" alt="Tax Filing Basics for Indian Beginners (2025)">
+                    </div>
+                    <div class="blog-card-body">
+                        <div class="blog-meta">
+                            <span class="blog-category">Tax</span>
+                            <span class="reading-time">⏱ 9 min read</span>
+                        </div>
+                        <h3>Tax Filing Basics for Indian Beginners (2025)</h3>
+                        <p>It's July 25th and everyone's screaming "File your ITR before July 31st!" What's ITR? Do you need to file? What happens if you don't? This guide breaks down tax filing in plain language without the panic.</p>
+                        <span class="read-more">Read Full Article</span>
+                    </div>
+                </a>
+
+                <!-- BLOG POST -->
+                <a href="posts/income-tax-basics/index.html" class="blog-card" data-category="tax">
+                    <div class="blog-card-image">
+                        <img src="posts/what-is-nifty-50/thumbnail.png" alt="Income Tax Basics for Indian Beginners (2025)">
+                    </div>
+                    <div class="blog-card-body">
+                        <div class="blog-meta">
+                            <span class="blog-category">Tax</span>
+                            <span class="reading-time">⏱ 12 min read</span>
+                        </div>
+                        <h3>Income Tax Basics for Indian Beginners (2025)</h3>
+                        <p>If you're seeing "TDS" on your payslip or earning your first salary, you've probably wondered what income tax is. This guide explains the basics in plain language - what it is, who pays it, and what you need to do.</p>
+                        <span class="read-more">Read Full Article</span>
+                    </div>
+                </a>
+
+                <!-- BLOG POST -->
+                <a href="posts/interest-rates-explained/index.html" class="blog-card" data-category="personal-finance">
+                    <div class="blog-card-image">
+                        <img src="posts/what-is-bank-nifty/thumbnail.png" alt="Interest Rates Explained for Indian Beginners (2025)">
+                    </div>
+                    <div class="blog-card-body">
+                        <div class="blog-meta">
+                            <span class="blog-category">Personal Finance</span>
+                            <span class="reading-time">⏱ 11 min read</span>
+                        </div>
+                        <h3>Interest Rates Explained for Indian Beginners (2025)</h3>
+                        <p>"RBI hiked interest rates" sounds boring until you realize it just increased your home loan EMI by ₹5,000/month. This guide explains what interest rates are, who controls them, and how they directly hit your wallet.</p>
+                        <span class="read-more">Read Full Article</span>
+                    </div>
+                </a>
+
+                <!-- BLOG POST -->
+                <a href="posts/inflation-explained/index.html" class="blog-card" data-category="personal-finance">
+                    <div class="blog-card-image">
+                        <img src="posts/what-is-an-etf/thumbnail.png" alt="Inflation Explained for Indian Beginners (2025)">
+                    </div>
+                    <div class="blog-card-body">
+                        <div class="blog-meta">
+                            <span class="blog-category">Personal Finance</span>
+                            <span class="reading-time">⏱ 10 min read</span>
+                        </div>
+                        <h3>Inflation Explained for Indian Beginners (2025)</h3>
+                        <p>Your parents say "everything was so cheap back then." That's inflation - the invisible thief eating your money every day. This guide explains what it is, why it matters, and what you can do about it.</p>
+                        <span class="read-more">Read Full Article</span>
+                    </div>
+                </a>
+
+                <!-- BLOG POST -->
+                <a href="posts/what-is-bank-nifty/index.html" class="blog-card" data-category="market-indices">
+                    <div class="blog-card-image">
+                        <img src="posts/tax-filing-basics/thumbnail.png" alt="What is Bank Nifty? Simple Explanation for Indian Beginners (2025)">
+                    </div>
+                    <div class="blog-card-body">
+                        <div class="blog-meta">
+                            <span class="blog-category">Market Indices</span>
+                            <span class="reading-time">⏱ 12 min read</span>
+                        </div>
+                        <h3>What is Bank Nifty? Simple Explanation for Indian Beginners (2025)</h3>
+                        <p>Bank Nifty is mentioned constantly in financial news, but rarely explained in plain language. This guide breaks down what it is, why it's volatile, and how beginners should approach it - no jargon, no assumptions.</p>
+                        <span class="read-more">Read Full Article</span>
+                    </div>
+                </a>
+
+                <!-- BLOG POST -->
+                <a href="posts/sip-explained/index.html" class="blog-card" data-category="investing-basics">
+                    <div class="blog-card-image">
+                        <img src="posts/sip-explained/thumbnail.png" alt="SIP Explained for Indian Beginners (2025)">
+                    </div>
+                    <div class="blog-card-body">
+                        <div class="blog-meta">
+                            <span class="blog-category">Investing Basics</span>
+                            <span class="reading-time">⏱ 10 min read</span>
+                        </div>
+                        <h3>SIP Explained for Indian Beginners (2025)</h3>
+                        <p>SIP is one of the most-used investing terms in India. But most explanations are confusing or too salesy. This guide breaks down SIP in the simplest way possible - no jargon, no hype.</p>
+                        <span class="read-more">Read Full Article</span>
+                    </div>
+                </a>
+
+                <!-- BLOG POST -->
+                <a href="posts/index-funds-explained/index.html" class="blog-card" data-category="investing-basics">
+                    <div class="blog-card-image">
+                        <img src="posts/interest-rates-explained/thumbnail.png" alt="Index Funds Explained for Indian Beginners (2025)">
+                    </div>
+                    <div class="blog-card-body">
+                        <div class="blog-meta">
+                            <span class="blog-category">Investing Basics</span>
+                            <span class="reading-time">⏱ 8 min read</span>
+                        </div>
+                        <h3>Index Funds Explained for Indian Beginners (2025)</h3>
+                        <p>Confused about index funds? This guide breaks it down in the simplest way possible - what they are, how they work, and why they're popular for long-term investors in India.</p>
+                        <span class="read-more">Read Full Article</span>
+                    </div>
+                </a>
+
+                <!-- BLOG POST -->
+                <a href="posts/what-is-sensex/index.html" class="blog-card" data-category="market-indices">
+                    <div class="blog-card-image">
+                        <img src="posts/inflation-explained/thumbnail.png" alt="What is Sensex? Simple Explanation for Indian Beginners (2025)">
+                    </div>
+                    <div class="blog-card-body">
+                        <div class="blog-meta">
+                            <span class="blog-category">Market Indices</span>
+                            <span class="reading-time">⏱ 5 min read</span>
+                        </div>
+                        <h3>What is Sensex? Simple Explanation for Indian Beginners (2025)</h3>
+                        <p> If you're new to investing in India, you've heard "Sensex" everywhere. But what exactly is it? This guide explains Sensex in the simplest way - no jargon, no assumptions.</p>
+                        <span class="read-more">Read Full Article</span>
+                    </div>
+                </a>
+
+                <!-- BLOG POST -->
+                <a href="posts/what-is-nifty-50/index.html" class="blog-card" data-category="market-indices">
+                    <div class="blog-card-image">
+                        <img src="posts/index-funds-explained/thumbnail.png" alt="What is Nifty 50? Simple Explanation for Indian Beginners (2025)">
+                    </div>
+                    <div class="blog-card-body">
+                        <div class="blog-meta">
+                            <span class="blog-category">Market Indices</span>
+                            <span class="reading-time">⏱ 5 min read</span>
+                        </div>
+                        <h3>What is Nifty 50? Simple Explanation for Indian Beginners (2025)</h3>
+                        <p>A simple, beginner-friendly explanation of Nifty 50. Learn what Nifty is, how it works, why companies enter or exit, and why this index matters to Indian investors.</p>
+                        <span class="read-more">Read Full Article</span>
+                    </div>
+                </a>
+
+                <!-- BLOG POST -->
+                <a href="posts/etf-vs-mutual-fund/index.html" class="blog-card" data-category="investing-basics">
+                    <div class="blog-card-image">
+                        <img src="posts/income-tax-basics/thumbnail.png" alt="ETF vs Mutual Fund: Which Is Better for Indian Investors (2025)">
+                    </div>
+                    <div class="blog-card-body">
+                        <div class="blog-meta">
+                            <span class="blog-category">Investing Basics</span>
+                            <span class="reading-time">⏱ 5 min read</span>
+                        </div>
+                        <h3>ETF vs Mutual Fund: Which Is Better for Indian Investors (2025)</h3>
+                        <p>ETF vs Mutual Fund explained simply for Indian investors. Compare fees, liquidity, transparency, and find which option fits your investing style in 2025.</p>
+                        <span class="read-more">Read Full Article</span>
+                    </div>
+                </a>
+
+                <!-- BLOG POST -->
+                <a href="posts/what-is-an-etf/index.html" class="blog-card" data-category="investing-basics">
+                    <div class="blog-card-image">
+                        <img src="posts/etf-vs-mutual-fund/thumbnail.png" alt="What is an ETF? Simple Guide for Indian Investors (2025)">
+                    </div>
+                    <div class="blog-card-body">
+                        <div class="blog-meta">
+                            <span class="blog-category">Investing Basics</span>
+                            <span class="reading-time">⏱ 5 min read</span>
+                        </div>
+                        <h3>What is an ETF? Simple Guide for Indian Investors (2025)</h3>
+                        <p>No jargon. No hype. Just what you actually need to know about ETFs - the low-cost way to invest in diversified baskets of stocks through NSE/BSE.</p>
+                        <span class="read-more">Read Full Article</span>
+                    </div>
+                </a>
+
+                
+                
+
+                
+
+                <!-- Copy the above structure and update:
+                     - href (link to post)
+                     - data-category
+                     - blog-category text
+                     - reading-time
+                     - h3 (title)
+                     - p (description)
+                -->
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <img src="logo.png" alt="Wooli Logo" class="footer-logo">
+            <div class="footer-text">WOOLI</div>
+            <div class="social-links">
+                <a href="#">Twitter</a>
+                <a href="#">LinkedIn</a>
+                <a href="#">Instagram</a>
+                <a href="#">Facebook</a>
+            </div>
+            <p class="copyright">&copy; 2024 Wooli. Empowering financial growth across India.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Blog card reveal animation
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, index * 100);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.blog-card').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Category filter functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const blogCards = document.querySelectorAll('.blog-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const category = button.dataset.category;
+
+                // Update active button
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                // Filter cards
+                blogCards.forEach(card => {
+                    if (category === 'all' || card.dataset.category === category) {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

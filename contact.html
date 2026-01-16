@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Wooli</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bronze: #B8860B;
+            --bronze-light: #D4AF37;
+            --bronze-dark: #8B6914;
+            --dark: #1a1a1a;
+            --light: #f5f5f0;
+            --white: #ffffff;
+            --gray: #666;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: var(--light);
+            overflow-x: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 1.2rem 5%;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            padding: 0.8rem 5%;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-container:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-img {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            filter: drop-shadow(0 4px 8px rgba(184, 134, 11, 0.2));
+        }
+
+        .logo-text {
+            font-size: 2rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--bronze) 0%, var(--bronze-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 4px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            position: relative;
+            transition: all 0.3s ease;
+            padding: 0.6rem 0;
+            font-size: 1.05rem;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--bronze);
+            transition: width 0.3s ease;
+            box-shadow: 0 2px 8px rgba(184, 134, 11, 0.4);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--bronze);
+        }
+
+        /* 3D Hero Section */
+        .hero {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 12rem 5% 6rem;
+            background: linear-gradient(135deg, #f5f5f0 0%, #ffffff 50%, #f5f5f0 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* 3D Floating Orbs */
+        .hero::before,
+        .hero::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.3;
+        }
+
+        .hero::before {
+            top: -20%;
+            right: 10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(184, 134, 11, 0.4) 0%, transparent 70%);
+        }
+
+        .hero::after {
+            bottom: -10%;
+            left: 10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.4) 0%, transparent 70%);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            position: relative;
+            z-index: 1;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 1s ease forwards 0.3s;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+            letter-spacing: -2px;
+        }
+
+        .hero .highlight {
+            background: linear-gradient(135deg, var(--bronze) 0%, var(--bronze-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            color: var(--gray);
+            line-height: 1.8;
+        }
+
+        /* 3D Contact Container */
+        .contact-section {
+            padding: 8rem 5%;
+            background: var(--white);
+            position: relative;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* 3D Elevated Contact Box */
+        .contact-box {
+            background: white;
+            border-radius: 40px;
+            padding: 5rem;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.4s ease;
+            box-shadow: 
+                0 2px 4px rgba(0, 0, 0, 0.05),
+                0 8px 16px rgba(0, 0, 0, 0.08),
+                0 20px 40px rgba(0, 0, 0, 0.1),
+                0 40px 80px rgba(184, 134, 11, 0.08);
+            border: 1px solid rgba(184, 134, 11, 0.1);
+        }
+
+        .contact-box.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .contact-box:hover {
+            transform: translateY(-20px);
+            box-shadow: 
+                0 5px 10px rgba(0, 0, 0, 0.08),
+                0 15px 30px rgba(0, 0, 0, 0.12),
+                0 35px 70px rgba(0, 0, 0, 0.15),
+                0 70px 140px rgba(184, 134, 11, 0.15);
+        }
+
+        .contact-box h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--bronze);
+            font-weight: 900;
+            text-align: center;
+        }
+
+        .contact-box p {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            color: var(--gray);
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        /* Email Section */
+        .email-section {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding: 3rem;
+            background: linear-gradient(135deg, var(--light) 0%, var(--white) 100%);
+            border-radius: 25px;
+            box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .email-label {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .email-display {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--bronze);
+            word-break: break-all;
+        }
+
+        /* 3D Social Buttons Grid - Centered 2x2 */
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 500px;
+            margin: 0 auto;
+            perspective: 1500px;
+        }
+
+        .social-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            padding: 1.5rem 2rem;
+            background: linear-gradient(135deg, var(--bronze) 0%, var(--bronze-dark) 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 
+                0 5px 15px rgba(184, 134, 11, 0.3),
+                0 2px 5px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+
+        .social-button:hover {
+            transform: translateY(-15px) scale(1.05);
+            box-shadow: 
+                0 15px 40px rgba(184, 134, 11, 0.4),
+                0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .social-button:active {
+            transform: translateY(-10px) scale(1.02);
+        }
+
+        .social-icon {
+            font-size: 1.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--dark) 0%, #0a0a0a 100%);
+            color: white;
+            padding: 5rem 5% 2.5rem;
+            position: relative;
+            box-shadow: 0 -20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-logo {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+            margin: 0 auto 1.5rem;
+            filter: drop-shadow(0 8px 16px rgba(184, 134, 11, 0.4));
+        }
+
+        .footer-text {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--bronze);
+            margin-bottom: 2.5rem;
+            letter-spacing: 5px;
+        }
+
+        .copyright {
+            opacity: 0.7;
+            font-size: 1rem;
+            padding-top: 2.5rem;
+            border-top: 1px solid rgba(184, 134, 11, 0.2);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .contact-box {
+                padding: 3rem 2rem;
+            }
+
+            .contact-box h2 {
+                font-size: 2rem;
+            }
+
+            .social-grid {
+                grid-template-columns: 1fr;
+                max-width: 300px;
+            }
+
+            .logo-img {
+                width: 70px;
+                height: 70px;
+            }
+
+            .logo-text {
+                font-size: 1.6rem;
+            }
+
+            .nav-links {
+                gap: 2rem;
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo-container">
+                <img src="logo.png" alt="Wooli Logo" class="logo-img">
+                <span class="logo-text">WOOLI</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Get in <span class="highlight">Touch</span></h1>
+            <p>Have questions? Want to collaborate? We'd love to hear from you.</p>
+        </div>
+    </section>
+
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-box">
+                <h2>Reach Out</h2>
+                <p>Connect with us via email or follow us on social media for daily insights and updates.</p>
+
+                <div class="email-section">
+                    <span class="email-label">Email Us At:</span>
+                    <div class="email-display">contact@wooli.in</div>
+                </div>
+
+                <div class="social-grid">
+                    <a href="#" class="social-button">
+                        <span class="social-icon">𝕏</span>
+                        <span>Twitter</span>
+                    </a>
+                    <a href="#" class="social-button">
+                        <span class="social-icon">in</span>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="#" class="social-button">
+                        <span class="social-icon">📷</span>
+                        <span>Instagram</span>
+                    </a>
+                    <a href="#" class="social-button">
+                        <span class="social-icon">f</span>
+                        <span>Facebook</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <img src="logo.png" alt="Wooli Logo" class="footer-logo">
+            <div class="footer-text">WOOLI</div>
+            <p class="copyright">&copy; 2024 Wooli. Empowering financial growth across India.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Intersection Observer
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.contact-box').forEach(el => {
+            observer.observe(el);
+        });
+
+        // 3D tilt effect on contact box
+        const contactBox = document.querySelector('.contact-box');
+        contactBox.addEventListener('mousemove', (e) => {
+            const rect = contactBox.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const rotateX = (y - centerY) / 20;
+            const rotateY = (centerX - x) / 20;
+            
+            contactBox.style.transform = `
+                translateY(-20px)
+                rotateX(${rotateX}deg)
+                rotateY(${rotateY}deg)
+            `;
+        });
+        
+        contactBox.addEventListener('mouseleave', () => {
+            contactBox.style.transform = '';
+        });
+    </script>
+</body>
+</html>

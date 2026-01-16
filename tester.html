@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S&R Calculator - Beta Testing | Wooli</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bronze: #B8860B;
+            --bronze-light: #D4AF37;
+            --bronze-dark: #8B6914;
+            --dark: #1a1a1a;
+            --light: #f5f5f0;
+            --white: #ffffff;
+            --gray: #666;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: var(--light);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 1rem 3%;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            font-size: 1.6rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--bronze) 0%, var(--bronze-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 3px;
+        }
+
+        .beta-badge {
+            background: var(--bronze);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 40vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 10rem 5% 4rem;
+            background: linear-gradient(135deg, #f5f5f0 0%, #ffffff 50%, #f5f5f0 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(184, 134, 11, 0.2) 0%, transparent 70%);
+            filter: blur(80px);
+        }
+
+        .hero-content {
+            max-width: 900px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            color: var(--dark);
+            letter-spacing: -2px;
+        }
+
+        .hero .highlight {
+            background: linear-gradient(135deg, var(--bronze) 0%, var(--bronze-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+
+        .warning-box {
+            background: rgba(184, 134, 11, 0.1);
+            border-left: 4px solid var(--bronze);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 2rem auto;
+            max-width: 700px;
+            text-align: left;
+        }
+
+        .warning-box strong {
+            color: var(--bronze);
+        }
+
+        /* Calculator Section */
+        .calculator-section {
+            padding: 5rem 5%;
+            background: var(--white);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* Calculator Card */
+        .calculator-card {
+            background: white;
+            border-radius: 30px;
+            padding: 4rem;
+            box-shadow: 
+                0 2px 4px rgba(0, 0, 0, 0.05),
+                0 8px 16px rgba(0, 0, 0, 0.08),
+                0 20px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(184, 134, 11, 0.1);
+            margin-bottom: 3rem;
+            transition: all 0.4s ease;
+        }
+
+        .calculator-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 
+                0 8px 20px rgba(0, 0, 0, 0.1),
+                0 20px 40px rgba(0, 0, 0, 0.12),
+                0 40px 80px rgba(184, 134, 11, 0.15);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--bronze);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        /* Search Box */
+        .search-container {
+            margin-bottom: 3rem;
+        }
+
+        .search-label {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        #stockSearch {
+            width: 100%;
+            padding: 1.2rem 1.5rem;
+            font-size: 1.1rem;
+            border: 2px solid rgba(184, 134, 11, 0.3);
+            border-radius: 15px;
+            background: var(--light);
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        #stockSearch:focus {
+            outline: none;
+            border-color: var(--bronze);
+            box-shadow: 0 0 0 4px rgba(184, 134, 11, 0.1);
+        }
+
+        #stockSearch option {
+            padding: 1rem;
+        }
+
+        /* Results Display */
+        .results-container {
+            background: linear-gradient(135deg, var(--light) 0%, var(--white) 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-top: 2rem;
+            display: none;
+        }
+
+        .results-container.visible {
+            display: block;
+            animation: fadeInUp 0.6s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .stock-name {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--bronze);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .levels-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .level-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .level-card.resistance {
+            border-color: rgba(220, 53, 69, 0.3);
+        }
+
+        .level-card.support {
+            border-color: rgba(40, 167, 69, 0.3);
+        }
+
+        .level-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(184, 134, 11, 0.2);
+        }
+
+        .level-label {
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .level-card.resistance .level-label {
+            color: #dc3545;
+        }
+
+        .level-card.support .level-label {
+            color: #28a745;
+        }
+
+        .level-value {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--dark);
+        }
+
+        /* Feedback Section */
+        .feedback-card {
+            background: white;
+            border-radius: 30px;
+            padding: 4rem;
+            box-shadow: 
+                0 2px 4px rgba(0, 0, 0, 0.05),
+                0 8px 16px rgba(0, 0, 0, 0.08),
+                0 20px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(184, 134, 11, 0.1);
+            transition: all 0.4s ease;
+        }
+
+        .feedback-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 
+                0 8px 20px rgba(0, 0, 0, 0.1),
+                0 20px 40px rgba(0, 0, 0, 0.12),
+                0 40px 80px rgba(184, 134, 11, 0.15);
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 150px;
+            padding: 1.5rem;
+            font-size: 1.05rem;
+            border: 2px solid rgba(184, 134, 11, 0.3);
+            border-radius: 15px;
+            background: var(--light);
+            font-family: inherit;
+            resize: vertical;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: var(--bronze);
+            box-shadow: 0 0 0 4px rgba(184, 134, 11, 0.1);
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, var(--bronze) 0%, var(--bronze-dark) 100%);
+            color: white;
+            padding: 1.2rem 3rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1.5rem;
+            box-shadow: 0 8px 20px rgba(184, 134, 11, 0.3);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(184, 134, 11, 0.4);
+        }
+
+        .submit-btn:active {
+            transform: translateY(-1px);
+        }
+
+        .success-message {
+            display: none;
+            background: rgba(40, 167, 69, 0.1);
+            border-left: 4px solid #28a745;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-top: 1.5rem;
+            color: #28a745;
+            font-weight: 600;
+        }
+
+        .success-message.visible {
+            display: block;
+            animation: fadeInUp 0.6s ease;
+        }
+
+        /* Loading State */
+        .loading {
+            text-align: center;
+            padding: 2rem;
+            color: var(--gray);
+        }
+
+        .loading::after {
+            content: '...';
+            animation: dots 1.5s steps(4, end) infinite;
+        }
+
+        @keyframes dots {
+            0%, 20% { content: '.'; }
+            40% { content: '..'; }
+            60%, 100% { content: '...'; }
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--dark) 0%, #0a0a0a 100%);
+            color: white;
+            padding: 3rem 5%;
+            text-align: center;
+        }
+
+        .footer-text {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--bronze);
+            margin-bottom: 1rem;
+        }
+
+        .copyright {
+            opacity: 0.7;
+            font-size: 0.95rem;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .calculator-card,
+            .feedback-card {
+                padding: 2.5rem 1.5rem;
+            }
+
+            .levels-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo-container">
+                <img src="logo.png" alt="Wooli Logo" class="logo-img">
+                <span class="logo-text">WOOLI</span>
+            </a>
+            <span class="beta-badge">Beta Testing</span>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Support & Resistance <span class="highlight">Calculator</span></h1>
+            <p>Advanced Camarilla levels for 500+ Indian stocks</p>
+            <div class="warning-box">
+                <strong>⚠️ Beta Testing:</strong> This tool is currently in private beta. Your feedback is crucial in making this the best S&R calculator for Indian traders. Please test thoroughly and share your honest thoughts below.
+            </div>
+        </div>
+    </section>
+
+    <section class="calculator-section">
+        <div class="container">
+            <div class="calculator-card">
+                <h2 class="section-title">Select Stock / Index</h2>
+                
+                <div class="search-container">
+                    <label class="search-label" for="stockSearch">Search or select from dropdown:</label>
+                    <select id="stockSearch">
+                        <option value="">-- Select a stock --</option>
+                        <option value="loading">Loading stocks...</option>
+                    </select>
+                </div>
+
+                <div id="resultsContainer" class="results-container">
+                    <div class="stock-name" id="selectedStock"></div>
+                    <div class="levels-grid">
+                        <div class="level-card resistance">
+                            <div class="level-label">R3</div>
+                            <div class="level-value" id="r3">-</div>
+                        </div>
+                        <div class="level-card resistance">
+                            <div class="level-label">R2</div>
+                            <div class="level-value" id="r2">-</div>
+                        </div>
+                        <div class="level-card resistance">
+                            <div class="level-label">R1</div>
+                            <div class="level-value" id="r1">-</div>
+                        </div>
+                        <div class="level-card support">
+                            <div class="level-label">S1</div>
+                            <div class="level-value" id="s1">-</div>
+                        </div>
+                        <div class="level-card support">
+                            <div class="level-label">S2</div>
+                            <div class="level-value" id="s2">-</div>
+                        </div>
+                        <div class="level-card support">
+                            <div class="level-label">S3</div>
+                            <div class="level-value" id="s3">-</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feedback-card">
+                <h2 class="section-title">Share Your Feedback</h2>
+                <p style="text-align: center; color: var(--gray); margin-bottom: 1rem;">
+                    Help us improve! Tell us about accuracy, usability, features you'd like, or any issues you found.
+                </p>
+                <textarea id="feedbackText" placeholder="Your feedback here... (e.g., 'R1 level was accurate for RELIANCE today' or 'Would love to see historical data')"></textarea>
+                <button class="submit-btn" onclick="submitFeedback()">Submit Feedback</button>
+                <div id="successMessage" class="success-message">
+                    ✓ Thank you! Your feedback has been recorded.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-text">WOOLI</div>
+        <p class="copyright">&copy; 2024 Wooli. Beta Testing Program.</p>
+    </footer>
+
+    <script>
+        // Google Sheets URL (converted to CSV export format)
+        const SHEET_URL = 'nifty500_camarilla_4-12-2025.csv';
+        
+        let stockData = [];
+
+        // Load stock data from Google Sheets
+        async function loadStockData() {
+            try {
+                const response = await fetch(SHEET_URL);
+                const csvText = await response.text();
+                
+                // Parse CSV
+                const lines = csvText.split('\n');
+                const dropdown = document.getElementById('stockSearch');
+                dropdown.innerHTML = '<option value="">-- Select a stock --</option>';
+                
+                // Skip header row, process data rows
+                for (let i = 1; i < lines.length; i++) {
+                    const line = lines[i].trim();
+                    if (!line) continue;
+                    
+                    // Split by comma (handle potential commas in values)
+                    const values = line.split(',');
+                    if (values.length >= 7) {
+                        const symbol = values[0].trim();
+                        stockData.push({
+                            symbol: symbol,
+                            r1: values[1],
+                            r2: values[2],
+                            r3: values[3],
+                            s1: values[4],
+                            s2: values[5],
+                            s3: values[6]
+                        });
+                        
+                        // Add to dropdown
+                        const option = document.createElement('option');
+                        option.value = symbol;
+                        option.textContent = symbol;
+                        dropdown.appendChild(option);
+                    }
+                }
+                
+                console.log('Loaded ' + stockData.length + ' stocks');
+            } catch (error) {
+                console.error('Error loading data:', error);
+                document.getElementById('stockSearch').innerHTML = '<option value="">Error loading stocks. Please refresh.</option>';
+            }
+        }
+
+        // Display S&R levels for selected stock
+        function displayLevels() {
+            const symbol = document.getElementById('stockSearch').value;
+            if (!symbol) {
+                document.getElementById('resultsContainer').classList.remove('visible');
+                return;
+            }
+            
+            const stock = stockData.find(s => s.symbol === symbol);
+            if (!stock) return;
+            
+            // Update display
+            document.getElementById('selectedStock').textContent = symbol;
+            document.getElementById('r1').textContent = parseFloat(stock.r1).toFixed(2);
+            document.getElementById('r2').textContent = parseFloat(stock.r2).toFixed(2);
+            document.getElementById('r3').textContent = parseFloat(stock.r3).toFixed(2);
+            document.getElementById('s1').textContent = parseFloat(stock.s1).toFixed(2);
+            document.getElementById('s2').textContent = parseFloat(stock.s2).toFixed(2);
+            document.getElementById('s3').textContent = parseFloat(stock.s3).toFixed(2);
+            
+            // Show results
+            document.getElementById('resultsContainer').classList.add('visible');
+        }
+
+        // Submit feedback
+        function submitFeedback() {
+            const feedback = document.getElementById('feedbackText').value.trim();
+            const selectedStock = document.getElementById('stockSearch').value;
+            
+            if (!feedback) {
+                alert('Please enter your feedback before submitting.');
+                return;
+            }
+            
+            // Here you would normally send to a backend/Google Form
+            // For now, just show success message
+            console.log('Feedback submitted:', {
+                stock: selectedStock || 'None selected',
+                feedback: feedback,
+                timestamp: new Date().toISOString()
+            });
+            
+            // Show success message
+            document.getElementById('successMessage').classList.add('visible');
+            document.getElementById('feedbackText').value = '';
+            
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+                document.getElementById('successMessage').classList.remove('visible');
+            }, 5000);
+        }
+
+        // Event listeners
+        document.getElementById('stockSearch').addEventListener('change', displayLevels);
+
+        // Load data on page load
+        window.addEventListener('load', loadStockData);
+    </script>
+</body>
+</html>
