@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>₹50K Salary? Your Exact Month 1 Money Plan - Wooli</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bronze: #B8860B;
+            --bronze-light: #D4AF37;
+            --bronze-dark: #8B6914;
+            --dark: #1a1a1a;
+            --light: #f5f5f0;
+            --white: #ffffff;
+            --gray: #666;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.8;
+            color: var(--dark);
+            background: var(--light);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 1rem 3%;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            font-size: 1.6rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--bronze) 0%, var(--bronze-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 3px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        /* Article Container */
+        article {
+            max-width: 800px;
+            margin: 10rem auto 5rem;
+            padding: 0 5%;
+        }
+
+        .article-header {
+            margin-bottom: 3rem;
+        }
+
+        .category-tag {
+            display: inline-block;
+            padding: 0.6rem 1.5rem;
+            background: var(--bronze);
+            color: white;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+            letter-spacing: -1px;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 2rem;
+            color: var(--gray);
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .article-description {
+            font-size: 1.3rem;
+            color: var(--gray);
+            line-height: 1.7;
+            margin-bottom: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 2px solid var(--bronze);
+        }
+
+        /* Article Content */
+        .article-content {
+            font-size: 1.15rem;
+            line-height: 1.9;
+        }
+
+        .article-content h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin: 3rem 0 1.5rem;
+            color: var(--bronze);
+        }
+
+        .article-content h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 2.5rem 0 1.2rem;
+            color: var(--dark);
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .article-content ul,
+        .article-content ol {
+            margin: 1.5rem 0;
+            padding-left: 2rem;
+        }
+
+        .article-content li {
+            margin-bottom: 0.8rem;
+        }
+
+        .article-content strong {
+            color: var(--bronze);
+            font-weight: 700;
+        }
+
+        .article-content blockquote {
+            border-left: 4px solid var(--bronze);
+            padding: 1.5rem 2rem;
+            margin: 2rem 0;
+            background: var(--white);
+            font-style: italic;
+            border-radius: 8px;
+        }
+
+        /* Back Button */
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1rem 2rem;
+            background: var(--bronze);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            margin: 4rem 0 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            transform: translateX(-5px);
+            box-shadow: 0 8px 20px rgba(184, 134, 11, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--dark) 0%, #0a0a0a 100%);
+            color: white;
+            padding: 4rem 5% 2rem;
+            text-align: center;
+        }
+
+        .footer-text {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--bronze);
+            margin-bottom: 1.5rem;
+        }
+
+        .copyright {
+            opacity: 0.7;
+            font-size: 0.95rem;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            article {
+                margin-top: 8rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .logo-img {
+                width: 60px;
+                height: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="../../index.html" class="logo-container">
+                <img src="../../logo.png" alt="Wooli Logo" class="logo-img">
+                <span class="logo-text">WOOLI</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../blog.html">Blog</a></li>
+                <li><a href="../../about.html">About</a></li>
+                <li><a href="../../contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <article>
+        <div class="article-header">
+            <span class="category-tag">Personal Finance</span>
+            <h1>₹50K Salary? Your Exact Month 1 Money Plan</h1>
+            <div class="article-meta">
+                <span>📅 December 5, 2024</span>
+                <span>⏱ 5 min read</span>
+            </div>
+            <p class="article-description">The 50-30-20 rule adapted for India with real numbers. Stop winging it and start building wealth from your first paycheck.</p>
+        </div>
+
+        <div class="article-content">
+            <!-- PASTE YOUR BLOG CONTENT HERE -->
+            <p><strong>Your first salary just hit your account. ₹50,000.</strong></p>
+
+            <p>Now what?</p>
+
+            <p>Most people wing it. They spend on rent, food, maybe save whatever's left (spoiler: there's never anything left), and repeat the cycle every month. Six months later, they're still broke with zero savings.</p>
+
+            <p>Here's your exact blueprint to break that cycle - from Day 1.</p>
+
+            <h2>The 50-30-20 Rule (Indian Reality Version)</h2>
+
+            <p>The framework is simple:</p>
+            <ul>
+                <li><strong>50% on Needs</strong> (₹25,000) - Rent, food, utilities, transport</li>
+                <li><strong>30% on Wants</strong> (₹15,000) - Entertainment, dining out, hobbies</li>
+                <li><strong>20% on Savings</strong> (₹10,000) - Emergency fund, investments, future goals</li>
+            </ul>
+
+            <p>But here's the reality check: If you're living in a metro, ₹25,000 for needs might not cut it. Adjust the percentages based on your city.</p>
+
+            <h3>Month 1 Priority: Emergency Fund</h3>
+
+            <p>Before you even think about investing, you need a safety net. Your emergency fund should cover 3-6 months of expenses.</p>
+
+            <p>For a ₹50K salary, that's ₹1.5 lakhs minimum (₹30K expenses × 6 months).</p>
+
+            <p><strong>Action:</strong> Put that ₹10,000 into a liquid fund or high-interest savings account. No stocks, no crypto, no "I'll just keep it at home." You need instant access without risk.</p>
+
+            <h3>The Rest of Your Money</h3>
+
+            <p><strong>Needs (₹25,000):</strong></p>
+            <ul>
+                <li>Rent: ₹12,000-15,000 (get a roommate if needed)</li>
+                <li>Food: ₹6,000-8,000 (cook at home, pack lunch)</li>
+                <li>Transport: ₹2,000-3,000 (public transport > Uber)</li>
+                <li>Utilities: ₹1,000-2,000 (electricity, internet, phone)</li>
+            </ul>
+
+            <p><strong>Wants (₹15,000):</strong></p>
+            <p>This is YOUR money. Use it guilt-free. Just track it. Apps like Walnut or Money View work great.</p>
+
+            <h2>Common Mistakes to Avoid</h2>
+
+            <ol>
+                <li><strong>Buying a bike/car on EMI</strong> - You just added a ₹8-10K monthly liability. Not worth it in Month 1.</li>
+                <li><strong>Lifestyle inflation</strong> - Just because you have money doesn't mean you need the ₹300 coffee every day.</li>
+                <li><strong>Ignoring health insurance</strong> - Get a ₹5L cover minimum. Your company insurance isn't enough.</li>
+            </ol>
+
+            <h2>Next Steps</h2>
+
+            <p>By Month 6, you should have:</p>
+            <ul>
+                <li>₹60,000 in emergency fund</li>
+                <li>Started a SIP in index funds (₹2-3K/month)</li>
+                <li>Zero credit card debt</li>
+            </ul>
+
+            <p>Start simple. Stay consistent. Build from there.</p>
+
+            <p>Your future self will thank you.</p>
+
+        </div>
+
+        <a href="../../blog.html" class="back-button">← Back </a>
+    </article>
+
+    <footer>
+        <div class="footer-text">WOOLI</div>
+        <p class="copyright">&copy; 2024 Wooli. Empowering financial growth across India.</p>
+    </footer>
+</body>
+</html>
+```
+
+---
+
+**Your folder structure should now be:**
+```
+wooli/
+├── index.html
+├── blog.html  ← NEW
+├── about.html
+├── contact.html
+├── logo.png
+└── posts/
+    └── 50k-salary-month-1-plan.html  ← NEW
