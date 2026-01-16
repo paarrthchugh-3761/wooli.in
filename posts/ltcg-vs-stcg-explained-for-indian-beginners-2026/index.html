@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LTCG vs STCG Explained for Indian Beginners (2026) - Wooli</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bronze: #B8860B;
+            --bronze-light: #D4AF37;
+            --bronze-dark: #8B6914;
+            --dark: #1a1a1a;
+            --light: #f5f5f0;
+            --white: #ffffff;
+            --gray: #666;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.8;
+            color: var(--dark);
+            background: var(--light);
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 1rem 3%;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            font-size: 1.6rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--bronze) 0%, var(--bronze-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 3px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        article {
+            max-width: 800px;
+            margin: 10rem auto 5rem;
+            padding: 0 5%;
+        }
+
+        .article-header {
+            margin-bottom: 3rem;
+        }
+
+        .category-tag {
+            display: inline-block;
+            padding: 0.6rem 1.5rem;
+            background: var(--bronze);
+            color: white;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+            letter-spacing: -1px;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 2rem;
+            color: var(--gray);
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .article-description {
+            font-size: 1.3rem;
+            color: var(--gray);
+            line-height: 1.7;
+            margin-bottom: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 2px solid var(--bronze);
+        }
+
+        .article-content {
+            font-size: 1.15rem;
+            line-height: 1.9;
+        }
+
+        .article-content h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin: 3rem 0 1.5rem;
+            color: var(--bronze);
+        }
+
+        .article-content h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 2.5rem 0 1.2rem;
+            color: var(--dark);
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .article-content ul,
+        .article-content ol {
+            margin: 1.5rem 0;
+            padding-left: 2rem;
+        }
+
+        .article-content li {
+            margin-bottom: 0.8rem;
+        }
+
+        .article-content strong {
+            color: var(--bronze);
+            font-weight: 700;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1rem 2rem;
+            background: var(--bronze);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            margin: 4rem 0 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            transform: translateX(-5px);
+            box-shadow: 0 8px 20px rgba(184, 134, 11, 0.3);
+        }
+
+        footer {
+            background: linear-gradient(135deg, var(--dark) 0%, #0a0a0a 100%);
+            color: white;
+            padding: 4rem 5% 2rem;
+            text-align: center;
+        }
+
+        .footer-text {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--bronze);
+            margin-bottom: 1.5rem;
+        }
+
+        .copyright {
+            opacity: 0.7;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            article {
+                margin-top: 8rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .logo-img {
+                width: 60px;
+                height: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="../../index.html" class="logo-container">
+                <img src="../../logo.png" alt="Wooli Logo" class="logo-img">
+                <span class="logo-text">WOOLI</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../blog.html">Blog</a></li>
+                <li><a href="../../about.html">About</a></li>
+                <li><a href="../../contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <article>
+        <div class="article-header">
+            <span class="category-tag">Tax</span>
+            <h1>LTCG vs STCG Explained for Indian Beginners (2026)</h1>
+            <div class="article-meta">
+                <span>📅 January 12, 2026</span>
+                <span>⏱ 10 min read</span>
+            </div>
+            <p class="article-description">You bought shares in January. Now it's December and you want to sell. Your friend says "Wait till January! You'll save lakhs in tax." What difference does one month make? Everything.</p>
+        </div>
+
+        <div class="article-content">
+            <h2>What Are Capital Gains? (Quick Recap)</h2>
+
+            <p>Capital gains = Profit you make when selling an asset for more than you paid.</p>
+
+            <p><strong>Example:</strong></p>
+
+            <ul>
+                <li>Bought shares at ₹50,000</li>
+                <li>Sold at ₹80,000</li>
+                <li>Capital gain = ₹30,000</li>
+            </ul>
+
+            <p>This ₹30,000 profit is taxable.</p>
+
+            <p>But HOW it's taxed depends on how long you held the shares.</p>
+
+            <h2>What Is Short-Term Capital Gain (STCG)?</h2>
+
+            <p>STCG = Profit from selling an asset you held for a short period.</p>
+
+            <h3>Short Holding Period</h3>
+
+            <ul>
+                <li><strong>For equity:</strong> Less than 12 months</li>
+                <li><strong>For property:</strong> Less than 24 months</li>
+            </ul>
+
+            <p><strong>Example:</strong> Bought TCS shares in March 2025. Sold in November 2025 (8 months). Profit = STCG.</p>
+
+            <h3>Why It's Treated Differently</h3>
+
+            <p>Government views short-term buying and selling as speculation or trading, not investing.</p>
+
+            <p><strong>Tax treatment:</strong> Higher tax burden to discourage frequent churning.</p>
+
+            <h2>What Is Long-Term Capital Gain (LTCG)?</h2>
+
+            <p>LTCG = Profit from selling an asset you held for a longer period.</p>
+
+            <h3>Longer Holding Period</h3>
+
+            <ul>
+                <li><strong>For equity:</strong> 12 months or more</li>
+                <li><strong>For property:</strong> 24 months or more</li>
+            </ul>
+
+            <p><strong>Example:</strong> Bought Reliance shares in January 2024. Sold in March 2025 (14 months). Profit = LTCG.</p>
+
+            <h3>Why Government Treats It Differently</h3>
+
+            <p>Long-term holding signals genuine investment, not speculation.</p>
+
+            <p><strong>Tax treatment:</strong> Lower tax burden to reward patience.</p>
+
+            <p>LTCG encourages:</p>
+
+            <ul>
+                <li>Staying invested through market ups and downs</li>
+                <li>Building wealth steadily</li>
+                <li>Reducing market volatility</li>
+            </ul>
+
+            <h2>Why Holding Period Matters</h2>
+
+            <h3>Policy Intent</h3>
+
+            <p><strong>Government goal:</strong> Encourage savings, discourage speculation.</p>
+
+            <p><strong>How:</strong> Make long-term investing tax-friendly. Make short-term trading tax-heavy.</p>
+
+            <h3>Encouraging Long-Term Investing</h3>
+
+            <p><strong>Scenario:</strong> You bought shares at ₹1 lakh. Now worth ₹1.5 lakh.</p>
+
+            <ul>
+                <li><strong>Month 11:</strong> Tempted to sell.</li>
+                <li><strong>Tax reality:</strong> Selling now = STCG (higher tax). Waiting 2 months = LTCG (lower tax).</li>
+            </ul>
+
+            <p>You wait. Tax policy achieved its goal—kept you invested longer.</p>
+
+            <h3>Stability vs Speculation</h3>
+
+            <ul>
+                <li><strong>Short-term trading:</strong> High volatility, panic buying/selling, market instability.</li>
+                <li><strong>Long-term investing:</strong> Stability, steady growth, less panic.</li>
+            </ul>
+
+            <p>LTCG vs STCG tax structure nudges people toward stability.</p>
+
+            <h2>STCG vs LTCG — Conceptual Comparison</h2>
+
+            <h3>Time Horizon</h3>
+
+            <ul>
+                <li><strong>STCG:</strong> Quick flip. Weeks to months.</li>
+                <li><strong>LTCG:</strong> Patient hold. Years.</li>
+            </ul>
+
+            <h3>Risk Mindset</h3>
+
+            <ul>
+                <li><strong>STCG:</strong> Betting on short-term movements. Higher timing risk.</li>
+                <li><strong>LTCG:</strong> Riding long-term growth. Lower timing risk.</li>
+            </ul>
+
+            <h3>Tax Treatment Idea</h3>
+
+            <ul>
+                <li><strong>STCG:</strong> Treated like regular income. Higher burden.</li>
+                <li><strong>LTCG:</strong> Recognized as wealth building. Lower burden.</li>
+            </ul>
+
+            <p><strong>Philosophy:</strong> Patience rewarded. Speculation taxed more.</p>
+
+            <h2>How LTCG and STCG Affect Common Investments</h2>
+
+            <h3>Equity Shares</h3>
+
+            <ul>
+                <li>Hold 11 months, sell: STCG (higher tax)</li>
+                <li>Hold 13 months, sell: LTCG (lower tax)</li>
+            </ul>
+
+            <p><strong>Real impact:</strong> 2-month difference can save ₹5,000-₹10,000 on ₹1 lakh profit.</p>
+
+            <h3>Mutual Funds</h3>
+
+            <ul>
+                <li><strong>Equity funds:</strong> Same 12-month rule.</li>
+            </ul>
+
+            <p><strong>SIP complication:</strong> Each installment has its own holding period.</p>
+
+            <p><strong>Example:</strong> 2-year SIP. When you sell:</p>
+
+            <ul>
+                <li>Month 1-12 units: LTCG</li>
+                <li>Month 13-24 units: Mixed (depends on sale date)</li>
+            </ul>
+
+            <h3>Property</h3>
+
+            <ul>
+                <li>Hold 20 months: STCG (under 24 months)</li>
+                <li>Hold 30 months: LTCG (over 24 months)</li>
+            </ul>
+
+            <p>That's why you rarely see property flipped within 2 years.</p>
+
+            <h2>Common Myths About Capital Gains Duration</h2>
+
+            <h3>Myth 1: "Long-term means no tax"</h3>
+
+            <p><strong>Wrong.</strong></p>
+
+            <p>LTCG has LOWER tax, not ZERO tax. Exemption limits exist, but profits beyond that are taxed.</p>
+
+            <h3>Myth 2: "Only traders pay STCG"</h3>
+
+            <p><strong>Wrong.</strong></p>
+
+            <p>Anyone selling within holding period pays STCG—investor panicking at 10 months, someone needing emergency cash at 8 months, or selling 1 day before 12 months.</p>
+
+            <h3>Myth 3: "Selling anytime doesn't matter"</h3>
+
+            <p><strong>Wrong.</strong></p>
+
+            <p>Bought in Feb 2025. It's Jan 2026 (11 months).</p>
+
+            <ul>
+                <li>Sell now = STCG</li>
+                <li>Wait 1 month = LTCG</li>
+            </ul>
+
+            <p>That one month can save thousands.</p>
+
+            <h2>Mistakes Beginners Make</h2>
+
+            <h3>Mistake 1: Ignoring Holding Period</h3>
+
+            <p>Bought 10 months ago. Need money. Sell immediately.</p>
+
+            <p><strong>Didn't check:</strong> Just 2 months = LTCG benefit.</p>
+
+            <p><strong>Better:</strong> Before selling, check holding period. Close to 12 months? Evaluate if you can wait.</p>
+
+            <h3>Mistake 2: Panic Selling</h3>
+
+            <p>Market crashes. Portfolio drops.</p>
+
+            <p>Panic sell at 9 months = STCG applies.</p>
+
+            <p><strong>If waited 3 months:</strong> Market might recover + LTCG status + lower tax.</p>
+
+            <h3>Mistake 3: Not Understanding Exit Impact</h3>
+
+            <p>Friend sold mutual fund after 18 months. Low LTCG tax.</p>
+
+            <p>You copy. Sell after 18 months.</p>
+
+            <p><strong>Problem:</strong> Friend bought lump sum. You did SIP. Your units are mixed LTCG/STCG.</p>
+
+            <h2>How Beginners Should Think About LTCG vs STCG</h2>
+
+            <h3>Awareness Before Investing</h3>
+
+            <p><strong>Understand:</strong></p>
+
+            <ul>
+                <li>Under 12 months = STCG (higher tax)</li>
+                <li>Over 12 months = LTCG (lower tax)</li>
+            </ul>
+
+            <p>Don't invest in equity if you need money within 11 months. STCG tax + short-term volatility = bad combination.</p>
+
+            <h3>Patience Over Churn</h3>
+
+            <ul>
+                <li>Frequent buying/selling = STCG</li>
+                <li>Buy and hold = LTCG</li>
+            </ul>
+
+            <p>Tax system rewards buy-and-hold investors.</p>
+
+            <h3>Long-Term Mindset</h3>
+
+            <p>Instead of timing markets perfectly, think: "Stay invested 12+ months for LTCG benefit, then evaluate."</p>
+
+            <p>Tax incentive aligns with good investing behavior.</p>
+
+            <h2>Bottom Line</h2>
+
+            <p><strong>LTCG vs STCG = How long you held the asset.</strong></p>
+
+            <ul>
+                <li><strong>Short-term (under 12 months):</strong> STCG. Higher tax. Seen as speculation.</li>
+                <li><strong>Long-term (over 12 months):</strong> LTCG. Lower tax. Rewarded as investment.</li>
+            </ul>
+
+            <h3>Why this matters:</h3>
+
+            <p><strong>Timing exits:</strong></p>
+
+            <ul>
+                <li>Month 11 vs Month 13 makes big difference</li>
+                <li>Close to 12 months? Consider waiting</li>
+            </ul>
+
+            <p><strong>Planning investments:</strong></p>
+
+            <ul>
+                <li>Don't invest in equity if money needed in 6 months</li>
+                <li>Think 12+ months minimum</li>
+            </ul>
+
+            <p><strong>Understanding incentives:</strong></p>
+
+            <ul>
+                <li>Tax system wants you patient</li>
+                <li>Short-term churn = penalized</li>
+                <li>Long-term hold = rewarded</li>
+            </ul>
+
+            <p>One month can save thousands. Not exaggerating.</p>
+
+            <p>Know the rules. Plan accordingly. Avoid costly mistakes.</p>
+
+
+        </div>
+
+        <a href="../../blog.html" class="back-button">← Back to Blog</a>
+    </article>
+
+    <footer>
+        <div class="footer-text">WOOLI</div>
+        <p class="copyright">&copy; 2024 Wooli. Empowering financial growth across India.</p>
+    </footer>
+</body>
+</html>
