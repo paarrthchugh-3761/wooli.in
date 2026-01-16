@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inflation Explained for Indian Beginners (2025) - Wooli</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bronze: #B8860B;
+            --bronze-light: #D4AF37;
+            --bronze-dark: #8B6914;
+            --dark: #1a1a1a;
+            --light: #f5f5f0;
+            --white: #ffffff;
+            --gray: #666;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.8;
+            color: var(--dark);
+            background: var(--light);
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 1rem 3%;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            font-size: 1.6rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--bronze) 0%, var(--bronze-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 3px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        article {
+            max-width: 800px;
+            margin: 10rem auto 5rem;
+            padding: 0 5%;
+        }
+
+        .article-header {
+            margin-bottom: 3rem;
+        }
+
+        .category-tag {
+            display: inline-block;
+            padding: 0.6rem 1.5rem;
+            background: var(--bronze);
+            color: white;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+            letter-spacing: -1px;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 2rem;
+            color: var(--gray);
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .article-description {
+            font-size: 1.3rem;
+            color: var(--gray);
+            line-height: 1.7;
+            margin-bottom: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 2px solid var(--bronze);
+        }
+
+        .article-content {
+            font-size: 1.15rem;
+            line-height: 1.9;
+        }
+
+        .article-content h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin: 3rem 0 1.5rem;
+            color: var(--bronze);
+        }
+
+        .article-content h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 2.5rem 0 1.2rem;
+            color: var(--dark);
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .article-content ul,
+        .article-content ol {
+            margin: 1.5rem 0;
+            padding-left: 2rem;
+        }
+
+        .article-content li {
+            margin-bottom: 0.8rem;
+        }
+
+        .article-content strong {
+            color: var(--bronze);
+            font-weight: 700;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1rem 2rem;
+            background: var(--bronze);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            margin: 4rem 0 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            transform: translateX(-5px);
+            box-shadow: 0 8px 20px rgba(184, 134, 11, 0.3);
+        }
+
+        footer {
+            background: linear-gradient(135deg, var(--dark) 0%, #0a0a0a 100%);
+            color: white;
+            padding: 4rem 5% 2rem;
+            text-align: center;
+        }
+
+        .footer-text {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--bronze);
+            margin-bottom: 1.5rem;
+        }
+
+        .copyright {
+            opacity: 0.7;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            article {
+                margin-top: 8rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .logo-img {
+                width: 60px;
+                height: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="../../index.html" class="logo-container">
+                <img src="../../logo.png" alt="Wooli Logo" class="logo-img">
+                <span class="logo-text">WOOLI</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../blog.html">Blog</a></li>
+                <li><a href="../../about.html">About</a></li>
+                <li><a href="../../contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <article>
+        <div class="article-header">
+            <span class="category-tag">Personal Finance</span>
+            <h1>Inflation Explained for Indian Beginners (2025)</h1>
+            <div class="article-meta">
+                <span>📅 December 24, 2025</span>
+                <span>⏱ 10 min read</span>
+            </div>
+            <p class="article-description">Your parents say "everything was so cheap back then." That's inflation - the invisible thief eating your money every day. This guide explains what it is, why it matters, and what you can do about it.</p>
+        </div>
+
+        <div class="article-content">
+            <h2>What is Inflation?</h2>
+
+            <p>Inflation means prices going up over time.</p>
+
+            <p>More precisely: the same amount of money buys you less stuff than before.</p>
+
+            <h3>Simple example:</h3>
+
+            <ul>
+                <li><strong>2015:</strong> ₹100 bought you 2 liters of milk</li>
+                <li><strong>2025:</strong> ₹100 buys you 1.5 liters of milk</li>
+            </ul>
+
+            <p>Same money. Less milk. That's inflation.</p>
+
+            <p><strong>Real-life shocker:</strong> Mumbai rent for a 1BHK in Andheri:</p>
+
+            <ul>
+                <li><strong>2005:</strong> ₹8,000/month</li>
+                <li><strong>2025:</strong> ₹35,000/month</li>
+            </ul>
+
+            <p>Same flat. 4.4x increase. Your salary didn't grow 4.4x, did it?</p>
+
+            <h2>Why Inflation Happens</h2>
+
+            <h3>1. Demand vs Supply</h3>
+
+            <p>When more people want something but there's limited supply, prices go up.</p>
+
+            <p><strong>COVID example:</strong> Hand sanitizers jumped from ₹50 to ₹500 for 100ml. Everyone wanted it. Supply couldn't keep up.</p>
+
+            <p><strong>Onion crisis:</strong> When crops fail, prices shoot from ₹20/kg to ₹80/kg. Less availability = higher price.</p>
+
+            <h3>2. Cost Increases</h3>
+
+            <p>When production becomes expensive, companies pass costs to you.</p>
+
+            <p><strong>Fuel chain reaction:</strong></p>
+
+            <ul>
+                <li>Diesel price increases → Truck transport becomes expensive</li>
+                <li>Everything gets costlier (vegetables, electronics, furniture)</li>
+                <li>You pay more for the same tomatoes</li>
+            </ul>
+
+            <h3>3. Money Supply</h3>
+
+            <p>When government prints too much money, each rupee becomes less valuable.</p>
+
+            <p><strong>Simple logic:</strong> If everyone in your colony suddenly got ₹10 lakh cash, would the grocery store keep prices same? No. The shopkeeper knows everyone has more money, so prices go up.</p>
+
+            <h2>How Inflation Is Measured in India</h2>
+
+            <h3>CPI (Consumer Price Index)</h3>
+
+            <p>This tracks how much a typical household's monthly expenses have increased.</p>
+
+            <p><strong>What's included:</strong></p>
+
+            <ul>
+                <li>Food (45% weightage) - vegetables, grains, milk</li>
+                <li>Housing (10%) - rent, maintenance</li>
+                <li>Fuel & electricity (7%)</li>
+                <li>Clothing, education, healthcare, transport</li>
+            </ul>
+
+            <p><strong>What "6% inflation" actually means:</strong></p>
+
+            <ul>
+                <li>Last year: Monthly groceries = ₹10,000</li>
+                <li>This year: Same groceries = ₹10,600</li>
+                <li>You're paying ₹600 more for exact same items</li>
+            </ul>
+
+            <p><strong>Reality check:</strong> Official CPI says 6%. But YOUR personal inflation might be 10-12% because school fees increase 10% annually, health insurance jumps 15%, metro rent rises 8%.</p>
+
+            <p>Your lived experience ≠ government statistics.</p>
+
+            <h2>Why Inflation Matters to You</h2>
+
+            <h3>1. Impact on Savings</h3>
+
+            <p><strong>Brutal math:</strong></p>
+
+            <ul>
+                <li>₹10 lakh in savings account (3% interest)</li>
+                <li>Inflation = 6%</li>
+                <li>Real return = 3% - 6% = -3%</li>
+                <li>Your money loses 3% value yearly</li>
+            </ul>
+
+            <p>After 10 years, ₹10 lakh's buying power becomes only ₹7.4 lakh.</p>
+
+            <p><strong>True story:</strong> Someone kept ₹5 lakh cash from 1995 to 2025. Still ₹5 lakh in notes. But in 1995, it could buy a 2BHK flat. In 2025, it can't buy a bike. Inflation destroyed 90% of value.</p>
+
+            <h3>2. Impact on Salary</h3>
+
+            <p>Your salary must beat inflation or you're getting poorer.</p>
+
+            <p><strong>Example:</strong></p>
+
+            <ul>
+                <li><strong>2023:</strong> Salary = ₹50,000, inflation = 6%</li>
+                <li><strong>2024:</strong> You got 5% hike → ₹52,500</li>
+                <li>But inflation was 6% → You lost 1% purchasing power</li>
+            </ul>
+
+            <p>If salary grows 7% but inflation is 6%, you're only growing 1% in real terms.</p>
+
+            <h3>3. Impact on Daily Expenses</h3>
+
+            <p><strong>Then vs Now:</strong></p>
+
+            <ul>
+                <li><strong>Milk (1L):</strong> ₹25 (2010) → ₹65 (2025) = 160% increase</li>
+                <li><strong>Petrol:</strong> ₹50 → ₹100+ = 100% increase</li>
+                <li><strong>Movie ticket:</strong> ₹120 → ₹250 = 108% increase</li>
+                <li><strong>School fees:</strong> ₹25,000 → ₹75,000 = 200% increase</li>
+            </ul>
+
+            <p><strong>Painful truth:</strong> Your parents raised kids on ₹15,000/month in 2000. Try that today. Impossible.</p>
+
+            <h2>Inflation vs Interest Rates</h2>
+
+            <h3>Why RBI Raises Rates</h3>
+
+            <p>When inflation exceeds 6%, RBI increases interest rates to cool it down.</p>
+
+            <p><strong>Process:</strong></p>
+
+            <ol>
+                <li>RBI raises repo rate</li>
+                <li>Banks raise loan rates</li>
+                <li>People borrow less → Spend less → Demand drops → Prices stabilize</li>
+            </ol>
+
+            <p><strong>Real example:</strong> 2022 inflation hit 7.8%. RBI hiked rates from 4% to 6.5%. Home loan EMIs increased. People cut spending. Inflation fell to 5.5% by 2024.</p>
+
+            <h3>Impact on Loans and FDs</h3>
+
+            <p><strong>Home loan pain:</strong></p>
+
+            <ul>
+                <li>₹50 lakh loan, 20 years</li>
+                <li>Rate jumps 7% to 9%</li>
+                <li>Monthly EMI: ₹38,765 → ₹44,986</li>
+                <li>That's ₹6,221 extra/month</li>
+            </ul>
+
+            <p><strong>FD benefit:</strong></p>
+
+            <ul>
+                <li><strong>2021:</strong> FD rates = 5-5.5%</li>
+                <li><strong>2023:</strong> FD rates = 7-7.5%</li>
+            </ul>
+
+            <p>But: Inflation was 6-7%, so real return = only 0.5-1.5%. FDs barely preserve value.</p>
+
+            <h2>How Inflation Affects Investments</h2>
+
+            <h3>Cash - Worst Performer</h3>
+
+            <p>Keeping ₹10 lakh cash for 10 years = financial suicide.</p>
+
+            <p>At 6% inflation, it becomes worth ₹5.58 lakh in real terms.</p>
+
+            <h3>Fixed Deposits - Barely Better</h3>
+
+            <p><strong>Math:</strong></p>
+
+            <ul>
+                <li>FD return: 7%</li>
+                <li>Tax (30% slab): Post-tax = 4.9%</li>
+                <li>Inflation: 6%</li>
+                <li>Real return: -1.1%</li>
+            </ul>
+
+            <p>You're losing money, just slower than cash.</p>
+
+            <h3>Equity - Only Long-Term Winner</h3>
+
+            <p><strong>Historical data (30 years):</strong></p>
+
+            <ul>
+                <li>Sensex CAGR: ~14%</li>
+                <li>Inflation: ~6%</li>
+                <li>Real return: ~8%</li>
+            </ul>
+
+            <p>₹10 lakh invested in 1995 Sensex = ₹2.1 crore today. Same in FDs = ₹50 lakh (real value after inflation = ₹13 lakh only).</p>
+
+            <p><strong>Disclaimer:</strong> Equity has risk. Markets crash. But over 15-20 years, equity beats inflation. FDs don't.</p>
+
+            <h2>Common Inflation Myths</h2>
+
+            <h3>Myth 1: "Inflation is always bad"</h3>
+
+            <p><strong>Wrong.</strong></p>
+
+            <p>Moderate inflation (4-6%) is healthy. It encourages spending, signals demand, supports growth.</p>
+
+            <p>Bad inflation: Below 2% (stagnation) or above 8% (pain).</p>
+
+            <h3>Myth 2: "Saving cash is safest"</h3>
+
+            <p><strong>Dangerously wrong.</strong></p>
+
+            <p>Cash is least safe against inflation.</p>
+
+            <p><strong>10-year comparison at 6% inflation:</strong></p>
+
+            <ul>
+                <li>₹10 lakh cash → Real value = ₹5.58 lakh</li>
+                <li>₹10 lakh FD at 7% → Real value = ₹6.14 lakh</li>
+                <li>₹10 lakh Nifty 50 at 12% → Real value = ₹17.3 lakh</li>
+            </ul>
+
+            <p>Cash lost most. Equity won.</p>
+
+            <h3>Myth 3: "Inflation doesn't affect me"</h3>
+
+            <p>Everyone is affected:</p>
+
+            <ul>
+                <li><strong>Students:</strong> Tuition rises 8-10% yearly</li>
+                <li><strong>Renters:</strong> Rent increases every renewal</li>
+                <li><strong>Parents:</strong> Education, healthcare costs explode</li>
+                <li><strong>Retirees:</strong> Fixed pension loses value</li>
+            </ul>
+
+            <p><strong>Example:</strong> Dad retired in 2015 with ₹30,000/month pension. Comfortable then. In 2025, same ₹30,000 buys 40% less. Struggling now.</p>
+
+            <h2>What Can Individuals Do About Inflation?</h2>
+
+            <h3>1. Awareness</h3>
+
+            <p>Track your expenses. Calculate your personal inflation rate.</p>
+
+            <p><strong>Example:</strong></p>
+
+            <ul>
+                <li><strong>2023:</strong> ₹40,000/month</li>
+                <li><strong>2024:</strong> ₹44,500/month</li>
+                <li>Your inflation: 11.25%</li>
+            </ul>
+
+            <p>Awareness helps planning.</p>
+
+            <h3>2. Long-Term Investing Mindset</h3>
+
+            <p>Accept cash loses value. Some equity exposure is necessary to beat inflation over 10-20 years.</p>
+
+            <h3>3. Avoid Panic Decisions</h3>
+
+            <p><strong>Don't:</strong></p>
+
+            <ul>
+                <li>Hoard cash during inflation spikes</li>
+                <li>Stop SIPs in panic</li>
+                <li>Make drastic changes overnight</li>
+            </ul>
+
+            <p><strong>Do:</strong></p>
+
+            <ul>
+                <li>Review budget</li>
+                <li>Cut unnecessary expenses</li>
+                <li>Continue long-term investments</li>
+                <li>Stay calm</li>
+            </ul>
+
+            <h2>Bottom Line</h2>
+
+            <p><strong>What inflation is:</strong> The invisible thief reducing your money's buying power over time.</p>
+
+            <p><strong>Why it exists:</strong> Demand-supply gaps, rising costs, money supply expansion. Normal feature of growing economies.</p>
+
+            <p><strong>Why you must understand it:</strong> If you ignore inflation, you'll save hard and still end up poorer in real terms.</p>
+
+            <p><strong>The harsh truth:</strong></p>
+
+            <ul>
+                <li>Cash loses to inflation (always)</li>
+                <li>FDs barely tie (after tax, you lose)</li>
+                <li>Equity beats inflation (with volatility)</li>
+            </ul>
+
+            <p>Your ₹10 lakh today = ₹5.5 lakh in 10 years if left idle.</p>
+
+            <p>Understand inflation. Respect its power. Plan accordingly.</p>
+
+
+        </div>
+
+        <a href="../../blog.html" class="back-button">← Back </a>
+    </article>
+
+    <footer>
+        <div class="footer-text">WOOLI</div>
+        <p class="copyright">&copy; 2024 Wooli. Empowering financial growth across India.</p>
+    </footer>
+</body>
+</html>
