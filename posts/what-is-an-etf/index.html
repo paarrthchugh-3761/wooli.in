@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What is an ETF? Simple Guide for Indian Investors (2025) - Wooli</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bronze: #B8860B;
+            --bronze-light: #D4AF37;
+            --bronze-dark: #8B6914;
+            --dark: #1a1a1a;
+            --light: #f5f5f0;
+            --white: #ffffff;
+            --gray: #666;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.8;
+            color: var(--dark);
+            background: var(--light);
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 1rem 3%;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            font-size: 1.6rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--bronze) 0%, var(--bronze-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 3px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        article {
+            max-width: 800px;
+            margin: 10rem auto 5rem;
+            padding: 0 5%;
+        }
+
+        .article-header {
+            margin-bottom: 3rem;
+        }
+
+        .category-tag {
+            display: inline-block;
+            padding: 0.6rem 1.5rem;
+            background: var(--bronze);
+            color: white;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+            letter-spacing: -1px;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 2rem;
+            color: var(--gray);
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .article-description {
+            font-size: 1.3rem;
+            color: var(--gray);
+            line-height: 1.7;
+            margin-bottom: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 2px solid var(--bronze);
+        }
+
+        .article-content {
+            font-size: 1.15rem;
+            line-height: 1.9;
+        }
+
+        .article-content h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin: 3rem 0 1.5rem;
+            color: var(--bronze);
+        }
+
+        .article-content h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 2.5rem 0 1.2rem;
+            color: var(--dark);
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .article-content ul,
+        .article-content ol {
+            margin: 1.5rem 0;
+            padding-left: 2rem;
+        }
+
+        .article-content li {
+            margin-bottom: 0.8rem;
+        }
+
+        .article-content strong {
+            color: var(--bronze);
+            font-weight: 700;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1rem 2rem;
+            background: var(--bronze);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            margin: 4rem 0 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            transform: translateX(-5px);
+            box-shadow: 0 8px 20px rgba(184, 134, 11, 0.3);
+        }
+
+        footer {
+            background: linear-gradient(135deg, var(--dark) 0%, #0a0a0a 100%);
+            color: white;
+            padding: 4rem 5% 2rem;
+            text-align: center;
+        }
+
+        .footer-text {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--bronze);
+            margin-bottom: 1.5rem;
+        }
+
+        .copyright {
+            opacity: 0.7;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            article {
+                margin-top: 8rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .logo-img {
+                width: 60px;
+                height: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="../../index.html" class="logo-container">
+                <img src="../../logo.png" alt="Wooli Logo" class="logo-img">
+                <span class="logo-text">WOOLI</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../blog.html">Blog</a></li>
+                <li><a href="../../about.html">About</a></li>
+                <li><a href="../../contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <article>
+        <div class="article-header">
+            <span class="category-tag">Investing Basics</span>
+            <h1>What is an ETF? Simple Guide for Indian Investors (2025)</h1>
+            <div class="article-meta">
+                <span>📅 December 10, 2025</span>
+                <span>⏱ 5 min read</span>
+            </div>
+            <p class="article-description">No jargon. No hype. Just what you actually need to know about ETFs - the low-cost way to invest in diversified baskets of stocks through NSE/BSE.</p>
+        </div>
+
+        <div class="article-content">
+            <h2>What is an ETF?</h2>
+
+            <p>ETF = Exchange Traded Fund</p>
+
+            <h3>Exchange Traded</h3>
+
+            <ul>
+                <li>You buy and sell it on NSE/BSE through your demat account.</li>
+                <li>Price changes throughout the day.</li>
+            </ul>
+
+            <h3>Fund</h3>
+
+            <p>It holds a basket of assets — usually stocks, bonds, or gold.</p>
+
+            <p><strong>Example:</strong></p>
+
+            <p>A Nifty 50 ETF holds all 50 Nifty companies (Reliance, TCS, Infosys, HDFC Bank, etc.).</p>
+
+            <p>One unit gives you exposure to the entire index in one shot.</p>
+
+            <p>This is <strong>instant diversification</strong>.</p>
+
+            <h2>How ETFs Work</h2>
+
+            <p>Here's a simple breakdown using Nippon India Nifty 50 BeES:</p>
+
+            <ol>
+                <li>The fund house buys all 50 Nifty stocks in the same proportion as the index.</li>
+                <li>They package these into ETF units.</li>
+                <li>These units are listed on NSE/BSE.</li>
+                <li>You buy them like a stock using Zerodha, Groww, etc.</li>
+                <li>The price moves with the Nifty 50 index.</li>
+                <li>You sell your units on the exchange whenever you want.</li>
+            </ol>
+
+            <p>That's it — you get market exposure without buying 50 different stocks.</p>
+
+            <h2><a href="../etf-vs-mutual-fund/index.html">ETF vs Mutual Fund</a>: Key Differences</h2>
+
+            <h3>Trading</h3>
+
+            <ul>
+                <li><strong>ETF:</strong> Buy/sell anytime during market hours.</li>
+                <li><strong>Mutual Fund:</strong> Buy/sell only at end-of-day NAV.</li>
+            </ul>
+
+            <h3>Fees</h3>
+
+            <ul>
+                <li><strong>ETF:</strong> Very low expense ratio (0.05%–0.50%).</li>
+                <li><strong>Mutual Fund:</strong> Higher fees (0.25%–2.5%).</li>
+            </ul>
+
+            <h3>Management</h3>
+
+            <ul>
+                <li><strong>ETF:</strong> Passive (tracks an index).</li>
+                <li><strong>Mutual Fund:</strong> Active or passive.</li>
+            </ul>
+
+            <h3>Transparency</h3>
+
+            <ul>
+                <li><strong>ETF:</strong> Daily holdings.</li>
+                <li><strong>Mutual Fund:</strong> Monthly holdings.</li>
+            </ul>
+
+            <h3>Minimum Investment</h3>
+
+            <ul>
+                <li><strong>ETF:</strong> Just 1 unit (often ₹100–₹200).</li>
+                <li><strong>Mutual Fund:</strong> ₹500–₹5,000 SIP minimums.</li>
+            </ul>
+
+            <p>Neither is "better." They serve different needs depending on your investing style.</p>
+
+            <h2>Types of ETFs in India</h2>
+
+            <h3>Equity ETFs</h3>
+
+            <p>Track stock indices like:</p>
+
+            <ul>
+                <li>Nifty 50</li>
+                <li>Sensex</li>
+                <li>Nifty Next 50</li>
+                <li>Bank Nifty</li>
+            </ul>
+
+            <h3>Debt ETFs</h3>
+
+            <p>Track government or corporate bonds:</p>
+
+            <ul>
+                <li>Gilt ETFs</li>
+                <li>Corporate bond ETFs</li>
+            </ul>
+
+            <h3>Gold ETFs</h3>
+
+            <p>Track gold price. Each unit ≈ 1 gram of digital gold.</p>
+
+            <h3>Sector ETFs</h3>
+
+            <p>Focus on specific industries:</p>
+
+            <ul>
+                <li>IT</li>
+                <li>Pharma</li>
+                <li>PSU Banks</li>
+                <li>Infrastructure</li>
+            </ul>
+
+            <h3>International ETFs</h3>
+
+            <p>Give exposure to foreign markets:</p>
+
+            <ul>
+                <li>NASDAQ 100</li>
+                <li>US market ETFs</li>
+            </ul>
+
+            <p>Most beginners only need broad equity index ETFs.</p>
+
+            <h2>Pros and Cons of ETFs</h2>
+
+            <h3>Pros</h3>
+
+            <ul>
+                <li>Low expense ratio</li>
+                <li>High transparency</li>
+                <li>Instant diversification</li>
+                <li>Intraday liquidity</li>
+                <li>No lock-in</li>
+            </ul>
+
+            <h3>Cons</h3>
+
+            <ul>
+                <li>Requires a demat account</li>
+                <li>Brokerage charges apply</li>
+                <li>Some ETFs have low liquidity</li>
+                <li>Tracking error reduces accuracy</li>
+                <li>No automatic SIP option</li>
+            </ul>
+
+            <h2>Is an ETF Good for Beginners?</h2>
+
+            <p><strong>ETFs make sense if you:</strong></p>
+
+            <ul>
+                <li>Want low-cost passive investing</li>
+                <li>Don't mind manual monthly investing</li>
+                <li>Prefer real-time liquidity</li>
+                <li>Are comfortable using a demat account</li>
+            </ul>
+
+            <p><strong>ETFs may NOT make sense if you:</strong></p>
+
+            <ul>
+                <li>Don't have a demat account</li>
+                <li>Want automatic monthly SIPs</li>
+                <li>Invest extremely small amounts</li>
+                <li>Prefer active fund management</li>
+            </ul>
+
+            <p><strong>Honest take:</strong></p>
+
+            <p>For absolute beginners, <a href="../index-funds-explained/index.html">index mutual funds</a> are simpler. Once comfortable, ETFs offer better cost-efficiency.</p>
+
+            <h2>Risks & Misconceptions</h2>
+
+            <h3>Tracking Error</h3>
+
+            <p>ETF returns may differ slightly from the index due to:</p>
+
+            <ul>
+                <li>Fund expenses</li>
+                <li>Rebalancing</li>
+                <li>Cash management</li>
+            </ul>
+
+            <h3>Liquidity Issues</h3>
+
+            <p>Some ETFs trade at very low volumes. This can cause:</p>
+
+            <ul>
+                <li>Difficulty exiting</li>
+                <li>Price deviation from NAV</li>
+            </ul>
+
+            <h3>NAV vs Market Price</h3>
+
+            <p>ETFs have two prices:</p>
+
+            <ul>
+                <li><strong>NAV:</strong> Actual value of assets</li>
+                <li><strong>Market Price:</strong> What people pay on the exchange</li>
+            </ul>
+
+            <p>Small differences are normal.</p>
+
+            <h3>"ETFs are safer than stocks" (Wrong)</h3>
+
+            <p>If Nifty falls 10%, a Nifty ETF also falls ~10%. ETFs reduce company-specific risk, not market risk.</p>
+
+            <h2>Bottom Line</h2>
+
+            <p>An ETF is a simple, low-cost way to invest in a diversified basket of assets through one single trade.</p>
+
+            <p>If you want transparent, low-fee market exposure → ETFs work.</p>
+
+            <p>If you want automation (SIPs) → Index mutual funds are easier.</p>
+
+            <p>Choose based on your comfort, not hype.</p>
+
+
+        </div>
+
+        <a href="../../blog.html" class="back-button">← Back </a>
+    </article>
+
+    <footer>
+        <div class="footer-text">WOOLI</div>
+        <p class="copyright">&copy; 2024 Wooli. Empowering financial growth across India.</p>
+    </footer>
+</body>
+</html>

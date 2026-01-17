@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capital Gains Explained for Indian Beginners (2026) - Wooli</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bronze: #B8860B;
+            --bronze-light: #D4AF37;
+            --bronze-dark: #8B6914;
+            --dark: #1a1a1a;
+            --light: #f5f5f0;
+            --white: #ffffff;
+            --gray: #666;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.8;
+            color: var(--dark);
+            background: var(--light);
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 1rem 3%;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            font-size: 1.6rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--bronze) 0%, var(--bronze-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 3px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        article {
+            max-width: 800px;
+            margin: 10rem auto 5rem;
+            padding: 0 5%;
+        }
+
+        .article-header {
+            margin-bottom: 3rem;
+        }
+
+        .category-tag {
+            display: inline-block;
+            padding: 0.6rem 1.5rem;
+            background: var(--bronze);
+            color: white;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+            letter-spacing: -1px;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 2rem;
+            color: var(--gray);
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .article-description {
+            font-size: 1.3rem;
+            color: var(--gray);
+            line-height: 1.7;
+            margin-bottom: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 2px solid var(--bronze);
+        }
+
+        .article-content {
+            font-size: 1.15rem;
+            line-height: 1.9;
+        }
+
+        .article-content h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin: 3rem 0 1.5rem;
+            color: var(--bronze);
+        }
+
+        .article-content h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 2.5rem 0 1.2rem;
+            color: var(--dark);
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .article-content ul,
+        .article-content ol {
+            margin: 1.5rem 0;
+            padding-left: 2rem;
+        }
+
+        .article-content li {
+            margin-bottom: 0.8rem;
+        }
+
+        .article-content strong {
+            color: var(--bronze);
+            font-weight: 700;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1rem 2rem;
+            background: var(--bronze);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            margin: 4rem 0 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            transform: translateX(-5px);
+            box-shadow: 0 8px 20px rgba(184, 134, 11, 0.3);
+        }
+
+        footer {
+            background: linear-gradient(135deg, var(--dark) 0%, #0a0a0a 100%);
+            color: white;
+            padding: 4rem 5% 2rem;
+            text-align: center;
+        }
+
+        .footer-text {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--bronze);
+            margin-bottom: 1.5rem;
+        }
+
+        .copyright {
+            opacity: 0.7;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            article {
+                margin-top: 8rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .logo-img {
+                width: 60px;
+                height: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="../../index.html" class="logo-container">
+                <img src="../../logo.png" alt="Wooli Logo" class="logo-img">
+                <span class="logo-text">WOOLI</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../blog.html">Blog</a></li>
+                <li><a href="../../about.html">About</a></li>
+                <li><a href="../../contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <article>
+        <div class="article-header">
+            <span class="category-tag">Tax</span>
+            <h1>Capital Gains Explained for Indian Beginners (2026)</h1>
+            <div class="article-meta">
+                <span>📅 January 10, 2026</span>
+                <span>⏱ 12 min read</span>
+            </div>
+            <p class="article-description">You bought shares, made profit, and sold them. Then your broker deducts tax. Wait, what? Tax on selling shares? Welcome to capital gains tax - the tax on profit from selling assets in 2026.</p>
+        </div>
+
+        <div class="article-content">
+            <h2>What Are Capital Gains?</h2>
+
+            <p>Capital gain = Profit you make when selling an asset for more than you paid.</p>
+
+            <h3>Simple formula:</h3>
+
+            <ul>
+                <li>Bought at ₹100</li>
+                <li>Sold at ₹150</li>
+                <li>Gain = ₹50</li>
+            </ul>
+
+            <p>That ₹50 profit is your capital gain. And it's taxable.</p>
+
+            <h3>Real example:</h3>
+
+            <ul>
+                <li>You bought 100 shares of TCS at ₹3,000 = ₹3,00,000 invested.</li>
+                <li>Sold at ₹4,000 = ₹4,00,000 received.</li>
+                <li>Capital gain = ₹1,00,000</li>
+            </ul>
+
+            <p>This ₹1 lakh profit gets taxed (rate depends on how long you held the shares).</p>
+
+            <p><strong>Key point:</strong> Tax is on PROFIT, not on total sale amount. You're not taxed on the ₹3 lakh you originally invested. Only on the ₹1 lakh gain.</p>
+
+            <h2>Types of Capital Assets</h2>
+
+            <p>Capital assets = Things you buy that can appreciate (increase in value) or depreciate.</p>
+
+            <h3>Stocks & Mutual Funds</h3>
+
+            <p>When you buy equity shares or mutual fund units, you own a capital asset.</p>
+
+            <ul>
+                <li>Sell at profit = Capital gain (taxable)</li>
+                <li>Sell at loss = Capital loss (can offset future gains)</li>
+            </ul>
+
+            <h3>Property (Real Estate)</h3>
+
+            <p>Buy a flat for ₹50 lakh. Sell 5 years later for ₹80 lakh.</p>
+
+            <p>Capital gain = ₹30 lakh (taxable)</p>
+
+            <p><strong>Brutal reality:</strong> Many people forget about capital gains tax when selling property. They think ₹30 lakh profit = ₹30 lakh in pocket. Wrong. Tax takes a chunk.</p>
+
+            <h3>Gold & Other Assets</h3>
+
+            <p>Physical gold, gold bonds, sovereign gold bonds, digital gold—all qualify.</p>
+
+            <p>Sell at profit = Capital gain.</p>
+
+            <p><strong>Also includes:</strong> Jewelry, art, cryptocurrency (yes, crypto gains are taxable in India).</p>
+
+            <h2>Short-Term vs Long-Term Capital Gains (Conceptual)</h2>
+
+            <h3>The Holding Period Idea</h3>
+
+            <p>Government differentiates based on how long you held the asset.</p>
+
+            <p><strong>Logic:</strong> Long-term investments support economy. Short-term trading is speculation. So long-term gets tax benefits.</p>
+
+            <h3>Short-Term Capital Gains (<a href="../ltcg-vs-stcg-explained-for-indian-beginners-2026/index.html">STCG</a>)</h3>
+
+            <p>When you sell an asset quickly after buying.</p>
+
+            <ul>
+                <li><strong>For equity:</strong> Held less than 1 year</li>
+                <li><strong>For property:</strong> Held less than 2 years</li>
+            </ul>
+
+            <p><strong>Tax treatment:</strong> Higher tax (treated closer to regular income tax).</p>
+
+            <p><strong>Why higher:</strong> Government views this as trading/speculation, not long-term wealth building.</p>
+
+            <h3>Long-Term Capital Gains (<a href="../ltcg-vs-stcg-explained-for-indian-beginners-2026/index.html">LTCG</a>)</h3>
+
+            <p>When you sell after holding for a long time.</p>
+
+            <ul>
+                <li><strong>For equity:</strong> Held more than 1 year</li>
+                <li><strong>For property:</strong> Held more than 2 years</li>
+            </ul>
+
+            <p><strong>Tax treatment:</strong> Lower tax (government rewards long-term investing).</p>
+
+            <p><strong>Why lower:</strong> Encourages people to invest for years, not days.</p>
+
+            <h3>Why Duration Matters</h3>
+
+            <p><strong>Example logic (not exact rates):</strong></p>
+
+            <ul>
+                <li>Sell stock after 6 months = Higher tax rate</li>
+                <li>Sell same stock after 18 months = Lower tax rate</li>
+            </ul>
+
+            <p>Same stock. Same profit. Different tax just because you held longer.</p>
+
+            <p>This is intentional policy.</p>
+
+            <h2>Why Capital Gains Are Taxed</h2>
+
+            <h3>Profit-Based Taxation</h3>
+
+            <p>You made money. Government taxes money you make.</p>
+
+            <p><strong>Whether from:</strong></p>
+
+            <ul>
+                <li>Salary (income tax)</li>
+                <li>Business profit (income tax)</li>
+                <li>Selling assets (capital gains tax)</li>
+            </ul>
+
+            <p>All forms of making money get taxed.</p>
+
+            <h3>Fairness Concept</h3>
+
+            <ul>
+                <li><strong>Scenario 1:</strong> Person A works job, earns ₹10 lakh salary. Pays income tax.</li>
+                <li><strong>Scenario 2:</strong> Person B sells property, makes ₹10 lakh profit. Should they pay zero tax?</li>
+            </ul>
+
+            <p>Government says: No. Both made ₹10 lakh. Both should contribute tax. Fair.</p>
+
+            <h3>Difference from Salary Income</h3>
+
+            <ul>
+                <li><strong>Salary tax:</strong> Deducted monthly via TDS. You see net salary.</li>
+                <li><strong>Capital gains tax:</strong> You handle yourself when <a href="../tax-filing-basics/index.html">filing ITR</a>. Broker might deduct TDS on some transactions, but you settle final amount during tax filing.</li>
+            </ul>
+
+            <p>This confuses beginners. They forget to account for capital gains tax and get shocked at ITR filing time.</p>
+
+            <h2>How Capital Gains Affect Common Investments</h2>
+
+            <h3>Equity Investments (Stocks)</h3>
+
+            <p><strong>Buy and hold 2 years:</strong></p>
+
+            <ul>
+                <li>Long-term capital gains apply</li>
+                <li>Lower tax rate</li>
+                <li>Favorable treatment</li>
+            </ul>
+
+            <p><strong>Buy and sell within 6 months:</strong></p>
+
+            <ul>
+                <li>Short-term capital gains apply</li>
+                <li>Higher tax rate</li>
+                <li>Treated like regular income</li>
+            </ul>
+
+            <p><strong>Why this matters:</strong> Holding stocks longer can reduce your tax bill significantly (not investment advice, just tax reality).</p>
+
+            <h3>Mutual Funds</h3>
+
+            <ul>
+                <li><strong>Equity mutual funds:</strong> Same rules as stocks.</li>
+                <li><strong>Debt mutual funds:</strong> Different holding period rules.</li>
+            </ul>
+
+            <p><strong>SIP complication:</strong> Each SIP installment has its own purchase date. When you sell, holding period is calculated per installment.</p>
+
+            <p><strong>Example:</strong> You did SIP for 3 years. Sell everything. Some units are long-term (old installments), some short-term (recent installments). Tax calculated separately.</p>
+
+            <p>Most beginners don't know this.</p>
+
+            <h3>Real Estate</h3>
+
+            <ul>
+                <li>Hold property 2+ years: Long-term gains, lower tax</li>
+                <li>Hold less than 2 years: Short-term gains, higher tax</li>
+            </ul>
+
+            <p><strong>Why property investors hold long:</strong> Tax benefit is one reason. Market appreciation is another.</p>
+
+            <p><strong>Reality check:</strong> Selling house within 1 year of purchase? You'll pay heavy capital gains tax on profit.</p>
+
+            <h2>Common Capital Gains Myths</h2>
+
+            <h3>Myth 1: "Tax applies only if I withdraw to bank"</h3>
+
+            <p><strong>Wrong.</strong></p>
+
+            <p>Tax applies when you sell the asset, not when you withdraw money.</p>
+
+            <p><strong>Example:</strong></p>
+
+            <p>You sell shares worth ₹5 lakh (₹2 lakh profit). Keep money in trading account. Don't withdraw to bank.</p>
+
+            <p>Tax still applies. The moment you sold shares, capital gain was realized. Taxable event happened.</p>
+
+            <p>Keeping money in trading account doesn't avoid tax.</p>
+
+            <h3>Myth 2: "Capital gains don't matter for long-term investors"</h3>
+
+            <p><strong>Wrong.</strong></p>
+
+            <p>Long-term investors get LOWER tax, not ZERO tax (in most cases).</p>
+
+            <p><strong>Example:</strong> Bought Nifty 50 index fund 5 years ago. Made ₹3 lakh profit. Sold now.</p>
+
+            <p>Long-term capital gains tax still applies. It's just at a favorable rate.</p>
+
+            <p><strong>Exception:</strong> There are exemption limits (below which tax is zero), but profits beyond that are taxed.</p>
+
+            <h3>Myth 3: "Only traders pay capital gains tax"</h3>
+
+            <p><strong>Wrong.</strong></p>
+
+            <p><strong>Anyone selling assets at profit pays capital gains tax:</strong></p>
+
+            <ul>
+                <li>Grandma selling ancestral property: Pays capital gains tax</li>
+                <li>Uncle selling gold jewelry: Pays capital gains tax</li>
+                <li>Student selling gifted shares: Pays capital gains tax</li>
+            </ul>
+
+            <p>Doesn't matter if you're a "trader" or "investor." Profit = tax.</p>
+
+            <h2>Mistakes Beginners Make</h2>
+
+            <h3>Mistake 1: Ignoring Tax Impact</h3>
+
+            <p><strong>Common scenario:</strong></p>
+
+            <ul>
+                <li>Made ₹50,000 profit in stocks. Excited.</li>
+                <li>Filed ITR. Owed ₹7,500 capital gains tax.</li>
+                <li>Shock: "I already paid TDS on salary! Why more tax?"</li>
+            </ul>
+
+            <p><strong>Reality:</strong> Capital gains tax is separate. You must account for it.</p>
+
+            <p><strong>Better approach:</strong> When you make profit, mentally set aside 15-20% for tax. Don't spend the entire profit.</p>
+
+            <h3>Mistake 2: Not Understanding Holding Period</h3>
+
+            <p><strong>Horror story:</strong></p>
+
+            <p>Someone sold shares after 11 months thinking "almost a year, should get long-term benefit."</p>
+
+            <p><strong>Reality:</strong> Long-term starts AFTER 12 months, not at 11 months.</p>
+
+            <p><strong>Result:</strong> Entire gain taxed as short-term (higher rate). Cost them ₹20,000+ extra tax.</p>
+
+            <p><strong>Lesson:</strong> If close to 1-year mark, wait. Patience can save significant tax.</p>
+
+            <h3>Mistake 3: Mixing Up Gains with Cash Flow</h3>
+
+            <p><strong>Confusion:</strong></p>
+
+            <ul>
+                <li>Sold shares worth ₹1 lakh (₹30,000 profit).</li>
+                <li>Thinks: "I got ₹1 lakh. I'm ₹1 lakh richer."</li>
+            </ul>
+
+            <p><strong>Reality:</strong> You invested ₹70,000 earlier. Got back ₹1 lakh. Actual new money = ₹30,000.</p>
+
+            <p>And from that ₹30,000, you owe ₹4,500 tax (approx).</p>
+
+            <p><strong>Real gain = ₹25,500, not ₹1 lakh.</strong></p>
+
+            <p>Beginners forget to subtract original investment and tax.</p>
+
+            <h2>How Beginners Should Think About Capital Gains</h2>
+
+            <h3>Awareness Before Investing</h3>
+
+            <p>Before buying stocks/mutual funds/property, know:</p>
+
+            <ul>
+                <li>Selling at profit will attract capital gains tax</li>
+                <li>Holding longer generally means lower tax</li>
+                <li>You'll need to declare gains when filing ITR</li>
+            </ul>
+
+            <p>Don't panic. Just be aware.</p>
+
+            <h3>Long-Term Mindset</h3>
+
+            <p>Tax system rewards patience.</p>
+
+            <ul>
+                <li>Hold stocks 13 months instead of 11 months? Lower tax.</li>
+                <li>Hold property 25 months instead of 20 months? Lower tax.</li>
+            </ul>
+
+            <p>Sometimes waiting a few extra months makes financial sense purely from tax perspective.</p>
+
+            <p>Not investment advice. Just tax reality.</p>
+
+            <h3>Avoid Panic Decisions</h3>
+
+            <p>Market crashes. Your ₹1 lakh portfolio falls to ₹70,000.</p>
+
+            <p><strong>Panic thought:</strong> "Sell now to avoid more loss!"</p>
+
+            <p><strong>Tax angle:</strong> You have ₹30,000 capital LOSS. If you hold and it recovers to ₹1.2 lakh later, you have ₹20,000 gain.</p>
+
+            <p>Selling at loss creates capital loss (can offset future gains, but not great).</p>
+
+            <p>Understanding capital gains tax helps you avoid panic selling just for tax reasons.</p>
+
+            <h2>Bottom Line</h2>
+
+            <p>Capital gains = profit from selling assets.</p>
+
+            <p><strong>Why taxed:</strong> Because profit is income. All income gets taxed in some form.</p>
+
+            <p><strong>Key takeaways for beginners:</strong></p>
+
+            <h3>Selling assets at profit triggers tax:</h3>
+
+            <ul>
+                <li>Doesn't matter if you withdraw money or not</li>
+                <li>Doesn't matter if you're "investor" or "trader"</li>
+                <li>Profit = tax</li>
+            </ul>
+
+            <h3>Holding period matters:</h3>
+
+            <ul>
+                <li>Longer holding = generally lower tax</li>
+                <li>Check holding period before selling (11 months vs 13 months makes big difference)</li>
+            </ul>
+
+            <h3>Plan for tax impact:</h3>
+
+            <ul>
+                <li>Set aside 15-20% of profit for tax</li>
+                <li>Don't spend entire profit assuming it's all yours</li>
+                <li>Declare capital gains when filing ITR</li>
+            </ul>
+
+            <p>Understanding capital gains early prevents nasty surprises later.</p>
+
+            <p>You won't avoid the tax. But you'll plan for it. And that makes all the difference.</p>
+
+
+        </div>
+
+        <a href="../../blog.html" class="back-button">← Back to Blog</a>
+    </article>
+
+    <footer>
+        <div class="footer-text">WOOLI</div>
+        <p class="copyright">&copy; 2024 Wooli. Empowering financial growth across India.</p>
+    </footer>
+</body>
+</html>

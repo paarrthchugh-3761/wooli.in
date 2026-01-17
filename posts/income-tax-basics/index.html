@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Income Tax Basics for Indian Beginners (2025) - Wooli</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bronze: #B8860B;
+            --bronze-light: #D4AF37;
+            --bronze-dark: #8B6914;
+            --dark: #1a1a1a;
+            --light: #f5f5f0;
+            --white: #ffffff;
+            --gray: #666;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.8;
+            color: var(--dark);
+            background: var(--light);
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 1rem 3%;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            font-size: 1.6rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--bronze) 0%, var(--bronze-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 3px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        article {
+            max-width: 800px;
+            margin: 10rem auto 5rem;
+            padding: 0 5%;
+        }
+
+        .article-header {
+            margin-bottom: 3rem;
+        }
+
+        .category-tag {
+            display: inline-block;
+            padding: 0.6rem 1.5rem;
+            background: var(--bronze);
+            color: white;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+            letter-spacing: -1px;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 2rem;
+            color: var(--gray);
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .article-description {
+            font-size: 1.3rem;
+            color: var(--gray);
+            line-height: 1.7;
+            margin-bottom: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 2px solid var(--bronze);
+        }
+
+        .article-content {
+            font-size: 1.15rem;
+            line-height: 1.9;
+        }
+
+        .article-content h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin: 3rem 0 1.5rem;
+            color: var(--bronze);
+        }
+
+        .article-content h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 2.5rem 0 1.2rem;
+            color: var(--dark);
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .article-content ul,
+        .article-content ol {
+            margin: 1.5rem 0;
+            padding-left: 2rem;
+        }
+
+        .article-content li {
+            margin-bottom: 0.8rem;
+        }
+
+        .article-content strong {
+            color: var(--bronze);
+            font-weight: 700;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1rem 2rem;
+            background: var(--bronze);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            margin: 4rem 0 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            transform: translateX(-5px);
+            box-shadow: 0 8px 20px rgba(184, 134, 11, 0.3);
+        }
+
+        footer {
+            background: linear-gradient(135deg, var(--dark) 0%, #0a0a0a 100%);
+            color: white;
+            padding: 4rem 5% 2rem;
+            text-align: center;
+        }
+
+        .footer-text {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--bronze);
+            margin-bottom: 1.5rem;
+        }
+
+        .copyright {
+            opacity: 0.7;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            article {
+                margin-top: 8rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .logo-img {
+                width: 60px;
+                height: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="../../index.html" class="logo-container">
+                <img src="../../logo.png" alt="Wooli Logo" class="logo-img">
+                <span class="logo-text">WOOLI</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../blog.html">Blog</a></li>
+                <li><a href="../../about.html">About</a></li>
+                <li><a href="../../contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <article>
+        <div class="article-header">
+            <span class="category-tag">Tax</span>
+            <h1>Income Tax Basics for Indian Beginners (2025)</h1>
+            <div class="article-meta">
+                <span>📅 December 29, 2025</span>
+                <span>⏱ 12 min read</span>
+            </div>
+            <p class="article-description">If you're seeing "TDS" on your payslip or earning your first salary, you've probably wondered what income tax is. This guide explains the basics in plain language - what it is, who pays it, and what you need to do.</p>
+        </div>
+
+        <div class="article-content">
+            <h2>What is Income Tax?</h2>
+
+            <p>Income tax is money you pay to the government based on how much you earn.</p>
+
+            <h3>Simple logic:</h3>
+
+            <ul>
+                <li>You earn ₹10 lakh/year</li>
+                <li>Government says "Give us 10% of that"</li>
+                <li>You pay ₹1 lakh as tax</li>
+                <li>You keep ₹9 lakh</li>
+            </ul>
+
+            <p>That ₹1 lakh funds roads, schools, hospitals, defense, and everything else the government does.</p>
+
+            <p><strong>Why it exists:</strong> Government needs money to run the country. Income tax is one of the biggest sources of that money.</p>
+
+            <p><strong>Reality check:</strong> In 2023-24, India collected ₹19.58 lakh crore from income tax. That's more than the entire GDP of Pakistan.</p>
+
+            <h2>Who Has to Pay Income Tax in India?</h2>
+
+            <h3>Residents of India</h3>
+
+            <p>If you live in India for more than 182 days in a financial year (April 1 to March 31), you're a resident for tax purposes.</p>
+
+            <p>Residents pay tax on income earned anywhere in the world.</p>
+
+            <p><strong>Example:</strong> You work in Bangalore earning ₹8 lakh/year + earn ₹50,000 from US freelance work. Both are taxable in India.</p>
+
+            <h3>Income Threshold</h3>
+
+            <p>Not everyone pays tax. Only people earning above a certain limit.</p>
+
+            <p><strong>Basic concept:</strong></p>
+
+            <ul>
+                <li>Earn below ₹3 lakh/year → No tax (under new regime)</li>
+                <li>Earn above ₹3 lakh/year → Tax starts</li>
+            </ul>
+
+            <p><strong>Catch:</strong> Even if you earn less and owe zero tax, you might still need to FILE a return (we'll cover this later).</p>
+
+            <p><strong>Fun fact:</strong> 70% of Indian salaried employees earn below ₹5 lakh/year. Most of them pay zero or minimal tax but still file returns to claim refunds.</p>
+
+            <h2>Types of Income You Can Be Taxed On</h2>
+
+            <p>Income tax doesn't just apply to salary. It applies to ALL money you earn.</p>
+
+            <h3>1. Salary</h3>
+
+            <p>The most common source.</p>
+
+            <p><strong>What's included:</strong></p>
+
+            <ul>
+                <li>Basic pay</li>
+                <li>HRA</li>
+                <li>Bonuses</li>
+                <li>Allowances</li>
+            </ul>
+
+            <p><strong>Example:</strong> Your CTC is ₹8 lakh/year. This is taxable income (with some deductions possible under old regime).</p>
+
+            <h3>2. Business or Profession</h3>
+
+            <p>If you run a business, freelance, or consult, your profit is taxable.</p>
+
+            <p><strong>Example:</strong></p>
+
+            <ul>
+                <li>You freelance as a graphic designer</li>
+                <li>Earn ₹12 lakh in a year</li>
+                <li>Spend ₹2 lakh on software, laptop, internet</li>
+                <li>Taxable income = ₹12 lakh - ₹2 lakh = ₹10 lakh</li>
+            </ul>
+
+            <p><strong>Important:</strong> You're responsible for calculating and paying this tax yourself (not automatically deducted like salary).</p>
+
+            <h3>3. Capital Gains</h3>
+
+            <p>Profit from selling assets like stocks, property, gold, etc.</p>
+
+            <p><strong>Simple example:</strong></p>
+
+            <ul>
+                <li>Bought 100 shares at ₹500 each = ₹50,000</li>
+                <li>Sold at ₹700 each = ₹70,000</li>
+                <li>Profit = ₹20,000 (taxable as capital gains)</li>
+            </ul>
+
+            <p><strong>Two types:</strong></p>
+
+            <ul>
+                <li>Short-term gains (sold within 1 year) - Higher tax</li>
+                <li>Long-term gains (held over 1 year) - Lower tax</li>
+            </ul>
+
+            <p>We won't go into details here, but know that investment profits ARE taxed.</p>
+
+            <h3>4. Other Income</h3>
+
+            <p><strong>Examples:</strong></p>
+
+            <ul>
+                <li>Interest from savings account or FD</li>
+                <li>Rent from property you own</li>
+                <li>Income from side hustles</li>
+            </ul>
+
+            <p><strong>Bank interest example:</strong></p>
+
+            <ul>
+                <li>You earned ₹50,000 interest from FD in a year</li>
+                <li>This is taxable income</li>
+                <li>Must be added to your total income when filing return</li>
+            </ul>
+
+            <p><strong>Reality:</strong> Many people forget to include bank interest. That's technically tax evasion (even if unintentional).</p>
+
+            <h2><a href="../old-tax-regime-vs-new-tax-regime-which-should-beginners-choose-2026/index.html">Old Tax Regime vs New Tax Regime</a> (Simple Explanation)</h2>
+
+            <p>India now has TWO tax systems. You choose one each year when filing.</p>
+
+            <h3>Old Tax Regime</h3>
+
+            <p><strong>How it works:</strong></p>
+
+            <ul>
+                <li>Higher tax rates</li>
+                <li>But allows deductions (80C for ₹1.5 lakh, HRA, home loan interest, etc.)</li>
+                <li>Good if you have investments and expenses to claim</li>
+            </ul>
+
+            <p><strong>Example benefit:</strong> You invest ₹1.5 lakh in PPF/ELSS. Under old regime, that ₹1.5 lakh is NOT taxed.</p>
+
+            <h3>New Tax Regime</h3>
+
+            <p><strong>How it works:</strong></p>
+
+            <ul>
+                <li>Lower tax rates</li>
+                <li>NO deductions (no 80C, no HRA claims)</li>
+                <li>Simpler - just pay tax on your income directly</li>
+            </ul>
+
+            <p><strong>Example:</strong> You earn ₹7 lakh. Under new regime, tax is calculated on full ₹7 lakh (minus standard deduction of ₹75,000). No other deductions.</p>
+
+            <h3>Which to Choose?</h3>
+
+            <p><strong>High-level logic:</strong></p>
+
+            <ul>
+                <li><strong>Old regime:</strong> Better if you invest heavily (PPF, ELSS, home loan) and claim HRA</li>
+                <li><strong>New regime:</strong> Better if you don't invest much or claim deductions</li>
+            </ul>
+
+            <p><strong>Default since 2023:</strong> New regime is the default. You have to actively choose old regime if you want it.</p>
+
+            <p><strong>Honest truth:</strong> For most young salaried people earning ₹5-10 lakh with minimal investments, new regime is simpler and often results in lower tax.</p>
+
+            <h2>What is TDS?</h2>
+
+            <p>TDS = Tax Deducted at Source</p>
+
+            <p><strong>Concept:</strong> Instead of you paying tax once a year, your employer/bank deducts it BEFORE giving you money.</p>
+
+            <h3>How It Works for Salary</h3>
+
+            <p><strong>Your payslip flow:</strong></p>
+
+            <ul>
+                <li>Gross salary: ₹50,000/month</li>
+                <li>TDS deducted: ₹3,000/month</li>
+                <li>In-hand salary: ₹47,000/month</li>
+            </ul>
+
+            <p>Your employer already sent that ₹3,000 to the government on your behalf.</p>
+
+            <p><strong>At year-end:</strong></p>
+
+            <ul>
+                <li>You earned ₹6 lakh</li>
+                <li>Employer deducted ₹36,000 as TDS</li>
+                <li>You file ITR and check: Actual tax owed = ₹30,000</li>
+                <li>Government refunds you ₹6,000</li>
+            </ul>
+
+            <p><strong>Key point:</strong> TDS is advance tax. When you file ITR, final calculation happens. Excess TDS gets refunded.</p>
+
+            <h3>TDS on Bank Interest</h3>
+
+            <p>If your bank interest exceeds ₹40,000/year (₹50,000 for senior citizens), bank deducts 10% TDS.</p>
+
+            <p><strong>Example:</strong></p>
+
+            <ul>
+                <li>FD interest earned: ₹60,000</li>
+                <li>Bank deducts ₹6,000 as TDS</li>
+                <li>You receive ₹54,000</li>
+                <li>When filing ITR, you report ₹60,000 and claim credit for ₹6,000 TDS</li>
+            </ul>
+
+            <h2>Do You Need to File an ITR?</h2>
+
+            <p>ITR = Income Tax Return (the form you submit to government declaring your income and tax paid). Learn more about <a href="../tax-filing-basics/index.html">tax filing basics</a> if you're filing for the first time.</p>
+
+            <h3>When Filing is Mandatory</h3>
+
+            <p>You MUST file ITR if:</p>
+
+            <ul>
+                <li>Income exceeds basic exemption (₹3 lakh under new regime, ₹2.5 lakh under old)</li>
+                <li>You have income from business/profession</li>
+                <li>You held foreign assets</li>
+                <li>You deposited more than ₹1 crore in bank accounts</li>
+            </ul>
+
+            <h3>Why File Even If Not Mandatory</h3>
+
+            <p>Even if you earn ₹2 lakh/year and owe zero tax, filing ITR helps:</p>
+
+            <h3>1. Get TDS refunds</h3>
+
+            <p>Maybe your employer or bank deducted TDS but you don't owe tax. Filing gets you refund.</p>
+
+            <p><strong>Example:</strong> Bank deducted ₹2,000 TDS on your FD interest, but your total income is only ₹2.5 lakh (below tax threshold). File ITR, get ₹2,000 back.</p>
+
+            <h3>2. Proof of income</h3>
+
+            <p><strong>Needed for:</strong></p>
+
+            <ul>
+                <li>Visa applications</li>
+                <li>Loan applications (home, car, education)</li>
+                <li>Renting apartments</li>
+            </ul>
+
+            <p><strong>Real scenario:</strong> Friend couldn't get education loan because he never filed ITR. Bank wanted 2 years of ITR as income proof. He earned well but had no documentation.</p>
+
+            <h3>3. Carry forward losses</h3>
+
+            <p>If you made losses in stock trading, you can carry them forward to offset future gains—but ONLY if you file ITR that year.</p>
+
+            <h2>Common Income Tax Myths</h2>
+
+            <h3>Myth 1: "Tax is only for rich people"</h3>
+
+            <p><strong>Wrong.</strong></p>
+
+            <p>Tax starts at ₹3 lakh/year income under new regime (₹2.5 lakh under old). That's ₹25,000/month salary. Not "rich."</p>
+
+            <p><strong>Reality:</strong> Most Indian salaried employees in cities pay some income tax.</p>
+
+            <h3>Myth 2: "If TDS is deducted, I don't need to file ITR"</h3>
+
+            <p><strong>Wrong.</strong></p>
+
+            <p>TDS is just advance tax payment. Filing ITR is the FINAL settlement with the government.</p>
+
+            <p><strong>What happens if you don't file:</strong></p>
+
+            <ul>
+                <li>If you owe more tax, you get penalty notices later</li>
+                <li>If you're owed refund, you never get it back</li>
+                <li>You have no income proof for future use</li>
+            </ul>
+
+            <p><strong>True story:</strong> Someone didn't file ITR for 3 years despite TDS being deducted. When applying for home loan, bank rejected because of no ITR. Had to scramble to file belated returns with penalties.</p>
+
+            <h3>Myth 3: "Filing tax is very complicated"</h3>
+
+            <p><strong>Not anymore.</strong></p>
+
+            <ul>
+                <li><strong>2015:</strong> Filing ITR meant visiting CA office, filling paper forms, waiting in lines.</li>
+                <li><strong>2025:</strong> You log into income tax website or use apps like ClearTax. Pre-filled Form 26AS shows your TDS, salary. Just verify and submit.</li>
+            </ul>
+
+            <p>For simple salary income, ITR filing takes 15-30 minutes.</p>
+
+            <p><strong>Caveat:</strong> If you have capital gains, business income, or multiple income sources, it gets complex. But for first-time filers with just salary, it's straightforward.</p>
+
+            <h2>Basic Things Beginners Should Do</h2>
+
+            <h3>1. Get a PAN Card</h3>
+
+            <p>PAN (Permanent Account Number) is your tax ID.</p>
+
+            <p><strong>You need it for:</strong></p>
+
+            <ul>
+                <li>Filing ITR</li>
+                <li>Opening bank accounts</li>
+                <li>Buying mutual funds/stocks</li>
+                <li>Any financial transaction above ₹50,000</li>
+            </ul>
+
+            <p>Apply online at incometax.gov.in or NSDL. Takes 7-10 days.</p>
+
+            <h3>2. Link PAN with Aadhaar</h3>
+
+            <p>Mandatory since 2023. If not linked, your PAN becomes inactive.</p>
+
+            <p>Do it at: incometax.gov.in (free, takes 2 minutes)</p>
+
+            <h3>3. Link Bank Account with PAN</h3>
+
+            <p>When government processes your ITR refund, they credit your linked bank account.</p>
+
+            <p>Check linkage at: netbanking or income tax e-filing portal</p>
+
+            <h3>4. Keep Income Records</h3>
+
+            <p><strong>Save these documents yearly:</strong></p>
+
+            <ul>
+                <li>Form 16 (salary certificate from employer)</li>
+                <li>Bank statements (for interest income)</li>
+                <li>Investment proofs (if claiming deductions)</li>
+            </ul>
+
+            <p><strong>Why:</strong> Needed when filing ITR. Also useful if tax department asks questions later.</p>
+
+            <h3>5. Awareness, Not Optimization</h3>
+
+            <p><strong>As a beginner, focus on:</strong></p>
+
+            <ul>
+                <li>Understanding what tax you're paying</li>
+                <li>Filing ITR on time (deadline: July 31 every year)</li>
+                <li>Getting refunds if owed</li>
+            </ul>
+
+            <p><strong>Don't obsess over:</strong></p>
+
+            <ul>
+                <li>Complex tax-saving strategies</li>
+                <li>Aggressive deductions</li>
+                <li>Regime switching calculations</li>
+            </ul>
+
+            <p>Keep it simple. As income grows, complexity will come naturally.</p>
+
+            <h2>Bottom Line</h2>
+
+            <p><strong>What income tax is:</strong> Money you pay to the government based on your earnings. It funds public services and infrastructure.</p>
+
+            <p><strong>Why it exists:</strong> Government needs revenue to function. Income tax is a major source.</p>
+
+            <p><strong>Why beginners should understand it early:</strong> Because ignoring tax doesn't make it go away. Not filing ITR leads to penalties, missed refunds, and future problems (loans, visas, legal notices).</p>
+
+            <p><strong>The simple truth:</strong></p>
+
+            <ul>
+                <li>If you earn above ₹3 lakh/year, you'll likely pay some tax</li>
+                <li>TDS deducts tax throughout the year</li>
+                <li>Filing ITR settles the final amount (refund or payment)</li>
+                <li>It's not as scary or complicated as it sounds</li>
+            </ul>
+
+            <p>Start early. File on time. Don't panic.</p>
+
+
+        </div>
+
+        <a href="../../blog.html" class="back-button">← Back </a>
+    </article>
+
+    <footer>
+        <div class="footer-text">WOOLI</div>
+        <p class="copyright">&copy; 2024 Wooli. Empowering financial growth across India.</p>
+    </footer>
+</body>
+</html>

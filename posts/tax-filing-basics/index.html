@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tax Filing Basics for Indian Beginners (2025) - Wooli</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bronze: #B8860B;
+            --bronze-light: #D4AF37;
+            --bronze-dark: #8B6914;
+            --dark: #1a1a1a;
+            --light: #f5f5f0;
+            --white: #ffffff;
+            --gray: #666;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.8;
+            color: var(--dark);
+            background: var(--light);
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 1rem 3%;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            font-size: 1.6rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--bronze) 0%, var(--bronze-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 3px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        article {
+            max-width: 800px;
+            margin: 10rem auto 5rem;
+            padding: 0 5%;
+        }
+
+        .article-header {
+            margin-bottom: 3rem;
+        }
+
+        .category-tag {
+            display: inline-block;
+            padding: 0.6rem 1.5rem;
+            background: var(--bronze);
+            color: white;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+            letter-spacing: -1px;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 2rem;
+            color: var(--gray);
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .article-description {
+            font-size: 1.3rem;
+            color: var(--gray);
+            line-height: 1.7;
+            margin-bottom: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 2px solid var(--bronze);
+        }
+
+        .article-content {
+            font-size: 1.15rem;
+            line-height: 1.9;
+        }
+
+        .article-content h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin: 3rem 0 1.5rem;
+            color: var(--bronze);
+        }
+
+        .article-content h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 2.5rem 0 1.2rem;
+            color: var(--dark);
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .article-content ul,
+        .article-content ol {
+            margin: 1.5rem 0;
+            padding-left: 2rem;
+        }
+
+        .article-content li {
+            margin-bottom: 0.8rem;
+        }
+
+        .article-content strong {
+            color: var(--bronze);
+            font-weight: 700;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1rem 2rem;
+            background: var(--bronze);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            margin: 4rem 0 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            transform: translateX(-5px);
+            box-shadow: 0 8px 20px rgba(184, 134, 11, 0.3);
+        }
+
+        footer {
+            background: linear-gradient(135deg, var(--dark) 0%, #0a0a0a 100%);
+            color: white;
+            padding: 4rem 5% 2rem;
+            text-align: center;
+        }
+
+        .footer-text {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--bronze);
+            margin-bottom: 1.5rem;
+        }
+
+        .copyright {
+            opacity: 0.7;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            article {
+                margin-top: 8rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .logo-img {
+                width: 60px;
+                height: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="../../index.html" class="logo-container">
+                <img src="../../logo.png" alt="Wooli Logo" class="logo-img">
+                <span class="logo-text">WOOLI</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../blog.html">Blog</a></li>
+                <li><a href="../../about.html">About</a></li>
+                <li><a href="../../contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <article>
+        <div class="article-header">
+            <span class="category-tag">Tax</span>
+            <h1>Tax Filing Basics for Indian Beginners (2025)</h1>
+            <div class="article-meta">
+                <span>📅 January 02, 2026</span>
+                <span>⏱ 9 min read</span>
+            </div>
+            <p class="article-description">It's July 25th and everyone's screaming "File your ITR before July 31st!" What's ITR? Do you need to file? What happens if you don't? This guide breaks down tax filing in plain language without the panic.</p>
+        </div>
+
+        <div class="article-content">
+            <h2>What is Tax Filing?</h2>
+
+            <p>Tax filing = Submitting a report to the government showing your <a href="../income-tax-basics/index.html">income tax</a> details:</p>
+
+            <ul>
+                <li>How much you earned</li>
+                <li>How much tax you paid (via TDS or advance tax)</li>
+                <li>Whether you owe more tax or deserve a refund</li>
+            </ul>
+
+            <h3>Think of it like this:</h3>
+
+            <p>Throughout the year, your employer deducted tax from your salary (TDS). Banks deducted tax on FD interest.</p>
+
+            <p>At year-end, you file ITR to:</p>
+
+            <ul>
+                <li>Confirm all income sources</li>
+                <li>Check if enough tax was paid</li>
+                <li>Claim refund if excess was deducted</li>
+                <li>Pay more if tax was short</li>
+            </ul>
+
+            <p>It's basically a reconciliation statement between you and the tax department.</p>
+
+            <p><strong>Key point:</strong> Filing ITR ≠ paying tax. You're just reporting income. Tax might already be paid via TDS.</p>
+
+            <h2>Who Needs to File an ITR?</h2>
+
+            <h3>Mandatory Filing</h3>
+
+            <p>You MUST file if:</p>
+
+            <ul>
+                <li>Income exceeds ₹3 lakh/year (new regime) or ₹2.5 lakh (old regime)</li>
+                <li>You run a business or freelance</li>
+                <li>You deposited ₹1 crore+ in bank accounts</li>
+            </ul>
+
+            <p><strong>Penalty for not filing:</strong> ₹5,000 late fee (₹1,000 if income < ₹5 lakh).</p>
+
+            <h3>Why File Even at Low Income?</h3>
+
+            <p><strong>Get refunds:</strong></p>
+
+            <p>You earned ₹2.8 lakh, so tax owed = ₹0. But employer deducted ₹8,000 TDS.</p>
+
+            <ul>
+                <li>File ITR → Get ₹8,000 back</li>
+                <li>Don't file → Lose ₹8,000 forever</li>
+            </ul>
+
+            <p><strong>Income proof:</strong></p>
+
+            <p><strong>Real story:</strong> Friend earned ₹4 lakh/year. Never filed ITR. Applied for education loan 2 years later. Bank wanted ITR as proof.</p>
+
+            <p>No ITR = no loan. Had to file belated returns with penalties. Loan delayed 4 months.</p>
+
+            <p><strong>Carry forward losses:</strong></p>
+
+            <p>Lost ₹30,000 in stocks? File ITR to carry loss forward. Next year's ₹50,000 profit gets offset. This is especially important for <a href="../tax-deductions-explained-for-indian-beginners-2025/index.html">tax deductions</a> and loss offsetting.</p>
+
+            <p>Don't file = loss is gone.</p>
+
+            <h2>Types of ITR Forms (Simple Overview)</h2>
+
+            <h3>ITR-1 (Sahaj) - For Salaried People</h3>
+
+            <p><strong>Use this if:</strong></p>
+
+            <ul>
+                <li>Salary income</li>
+                <li>Bank interest</li>
+                <li>Maybe one house property</li>
+                <li>Income under ₹50 lakh</li>
+            </ul>
+
+            <p>This covers 90% of salaried employees.</p>
+
+            <h3>ITR-3 - For Business/Freelancers</h3>
+
+            <p><strong>Use this if:</strong></p>
+
+            <ul>
+                <li>You run a business</li>
+                <li>You freelance</li>
+                <li>You're a professional (CA, doctor, consultant)</li>
+            </ul>
+
+            <p>More complex. Usually needs CA help.</p>
+
+            <h2>Documents Needed Before Filing</h2>
+
+            <h3>1. PAN Card</h3>
+
+            <p>Your tax identity. Can't file without it.</p>
+
+            <h3>2. Aadhaar Card</h3>
+
+            <p>Needed for verification. Must be linked to PAN.</p>
+
+            <p>Not linked? Go to incometax.gov.in → Link Aadhaar (free, 2 minutes).</p>
+
+            <h3>3. Bank Account Details</h3>
+
+            <p>Where you want refunds credited. Must be linked to your PAN.</p>
+
+            <h3>4. Form 16 (From Employer)</h3>
+
+            <p>Shows salary breakup and TDS deducted.</p>
+
+            <p>Employers issue by June 15th. Ask HR if you haven't received it.</p>
+
+            <h3>5. Interest Statements</h3>
+
+            <p>Bank interest is taxable. Get statements from netbanking.</p>
+
+            <h3>6. Form 26AS</h3>
+
+            <p>This is gold. Shows ALL tax deducted in your name.</p>
+
+            <p><strong>Where:</strong> Income tax portal → View Form 26AS</p>
+
+            <p>Auto-fills most of your ITR. Makes life 10x easier.</p>
+
+            <h2>How Tax Filing Works (Conceptual)</h2>
+
+            <h3>Step 1: Gather Income Details</h3>
+
+            <p>List all earnings:</p>
+
+            <ul>
+                <li>Salary (Form 16)</li>
+                <li>Bank interest</li>
+                <li>Freelance income (if any)</li>
+                <li>Stock gains (if any)</li>
+            </ul>
+
+            <h3>Step 2: Choose Tax Regime</h3>
+
+            <ul>
+                <li><strong>Old regime:</strong> Higher rates but allows deductions (80C, HRA, home loan)</li>
+                <li><strong>New regime:</strong> Lower rates, no deductions</li>
+            </ul>
+
+            <p>Most beginners default to new regime.</p>
+
+            <h3>Step 3: Calculate Tax</h3>
+
+            <p>Portal auto-calculates:</p>
+
+            <ul>
+                <li>Total income</li>
+                <li>Tax owed</li>
+                <li>TDS already paid</li>
+                <li>Final refund or payment due</li>
+            </ul>
+
+            <h3>Step 4: File Return</h3>
+
+            <p><strong>Options:</strong></p>
+
+            <ul>
+                <li>Income tax e-filing portal (free)</li>
+                <li>Apps like ClearTax (some free, some paid)</li>
+            </ul>
+
+            <p>Fill income, upload Form 16, verify math, submit.</p>
+
+            <p>You get acknowledgment number. Save it.</p>
+
+            <h3>Step 5: Verify Return (CRITICAL)</h3>
+
+            <p>Must verify within 30 days or return becomes invalid.</p>
+
+            <p><strong>Easiest method:</strong> Aadhaar OTP (instant)</p>
+
+            <p><strong>True story:</strong> Someone filed ITR, forgot to verify. Return considered invalid. Got notice 6 months later. Had to re-file.</p>
+
+            <h2>Common Filing Mistakes</h2>
+
+            <h3>Mistake 1: "TDS deducted, so no filing needed"</h3>
+
+            <p><strong>Wrong.</strong></p>
+
+            <p>TDS = advance payment. ITR = final settlement. Without filing, you can't claim refunds or prove income.</p>
+
+            <h3>Mistake 2: Ignoring Bank Interest</h3>
+
+            <p>Everyone forgets this.</p>
+
+            <p>Savings account + FD interest = taxable.</p>
+
+            <p><strong>What happens:</strong> Notice 3 years later. Pay tax + 50% penalty + 12% interest.</p>
+
+            <p><strong>Real example:</strong> ₹28,000 undeclared interest from 2020 became ₹52,000 bill in 2024.</p>
+
+            <h3>Mistake 3: Filing Wrong ITR Form</h3>
+
+            <p>Salary + freelance income? Need ITR-3, not ITR-1.</p>
+
+            <p><strong>Consequence:</strong> Return rejected. Must re-file.</p>
+
+            <h3>Mistake 4: Not Verifying</h3>
+
+            <p>Filed on July 28th. Forgot to verify. 30 days pass. Return invalid.</p>
+
+            <p><strong>Prevention:</strong> Verify immediately using Aadhaar OTP.</p>
+
+            <h2>What Happens After Filing?</h2>
+
+            <h3>Processing (2-8 Weeks)</h3>
+
+            <p>Tax department checks your return. Once processed, you get email confirmation.</p>
+
+            <h3>Refunds</h3>
+
+            <p>If owed, credited to linked bank account within 1-3 months.</p>
+
+            <p><strong>Track:</strong> Income tax portal → Refund Status</p>
+
+            <h3>Notices (Don't Panic)</h3>
+
+            <p>Sometimes department asks for clarification on data mismatches.</p>
+
+            <p>Not criminal charges. Usually resolves with proper documents.</p>
+
+            <h2>File Yourself or Get Help?</h2>
+
+            <h3>File Yourself If:</h3>
+
+            <ul>
+                <li>Simple income (just salary + bank interest)</li>
+                <li>Have 2-3 hours</li>
+                <li>Want to learn</li>
+            </ul>
+
+            <p><strong>Tools:</strong> Income tax portal (free) or ClearTax (₹500-₹1,000)</p>
+
+            <p><strong>Difficulty:</strong> Low with Form 16 + Form 26AS.</p>
+
+            <h3>Get CA Help If:</h3>
+
+            <ul>
+                <li>Complex income (freelance, capital gains, property)</li>
+                <li>Multiple sources</li>
+                <li>Confused or stressed</li>
+            </ul>
+
+            <p><strong>Cost:</strong> ₹500-₹3,000</p>
+
+            <p>Worth it for peace of mind.</p>
+
+            <h2>Bottom Line</h2>
+
+            <p>Tax filing protects YOU.</p>
+
+            <p>It ensures refunds, provides income proof, keeps you legally compliant.</p>
+
+            <p><strong>The honest truth:</strong></p>
+
+            <ul>
+                <li>First time feels overwhelming</li>
+                <li>Second time it's familiar</li>
+                <li>Third time it's routine</li>
+            </ul>
+
+            <p>Don't wait for perfect understanding. Just start.</p>
+
+            <p>Gather Form 16, log into income tax portal, begin. The system guides you.</p>
+
+            <p><strong>Deadline:</strong> July 31st every year.</p>
+
+            <p>Miss it = ₹5,000 penalty. File on time = peace of mind + potential refund.</p>
+
+            <p>You've got this.</p>
+
+
+        </div>
+
+        <a href="../../blog.html" class="back-button">← Back </a>
+    </article>
+
+    <footer>
+        <div class="footer-text">WOOLI</div>
+        <p class="copyright">&copy; 2024 Wooli. Empowering financial growth across India.</p>
+    </footer>
+</body>
+</html>
